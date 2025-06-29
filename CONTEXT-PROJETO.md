@@ -69,4 +69,13 @@ git commit -m "style: indexação e documentação do esquema de cores Polkadot 
 node polkadot-wallet/log-assistant.js "Indexação e documentação do esquema de cores Polkadot no globals.css (variáveis CSS, nomes e hex)" "Automação: cores Polkadot para uso global e manutenção"
 ```
 
-Sempre siga este padrão para todas as automações do projeto. 
+Sempre siga este padrão para todas as automações do projeto.
+
+## Orientação para Comentários em CSS
+
+**Nunca use comentários de linha `//` em arquivos CSS.**
+- Sempre utilize o padrão de comentários de bloco: `/* ... */`.
+- Comentários de linha (`//`) causam erro de build e travam o parser CSS.
+- Essa regra vale para todos os arquivos de estilos do projeto.
+
+# (Demais conteúdos do contexto do projeto seguem abaixo) 
