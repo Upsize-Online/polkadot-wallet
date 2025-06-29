@@ -122,9 +122,9 @@ export default function WalletConnect() {
 
   if (apiError) {
     return (
-      <div className="box-vertical box-dark items-center justify-center text-center" style={{maxWidth: 600, margin: '0 auto'}}>
+      <div className="box-vertical box-dark items-center justify-center text-center box-error">
         <div className="box-title-lg center pink">Erro de Conexão</div>
-        <div className="wallet-status" style={{color: 'var(--polkadot-pink)'}}>{apiError}</div>
+        <div className="wallet-status">{apiError}</div>
       </div>
     );
   }
@@ -148,25 +148,15 @@ export default function WalletConnect() {
         {/* Coluna 2: Instruções, Informações da Conta ou Mensagem de Desconexão */}
         <div className="flex flex-col justify-center flex-1">
           {showDisconnectInfo ? (
-            <div className="box-vertical" style={{padding: '0.8rem', margin: 0, background: 'var(--violet)', borderRadius: '1rem'}}>
+            <div className="box-vertical disconnect-box">
               <div className="wallet-status disconnect-message">
-                <div style={{marginBottom: '10px'}}>Sua carteira foi desconectada da interface.</div>
-                <div style={{color: 'var(--lime)', marginBottom: '10px'}}>A extensão Polkadot.js permanece autorizada no navegador.</div>
-                <div style={{marginBottom: '0'}}>Para remover a autorização completamente, acesse a extensão e remova manualmente este site da lista de permissões.</div>
+                <div>Sua carteira foi desconectada da interface.</div>
+                <div className="disconnect-lime">A extensão Polkadot.js permanece autorizada no navegador.</div>
+                <div>Para remover a autorização completamente, acesse a extensão e remova manualmente este site da lista de permissões.</div>
               </div>
               <button
                 onClick={handleDisconnectConfirm}
-                style={{
-                  background: 'var(--lime)',
-                  color: 'var(--black)',
-                  border: 'none',
-                  borderRadius: '0.5rem',
-                  padding: '0.4rem 1rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  marginTop: '0.5rem',
-                  cursor: 'pointer'
-                }}
+                className="btn-disconnect-confirm"
               >
                 OK
               </button>
@@ -184,17 +174,17 @@ export default function WalletConnect() {
           ) : (
             <>
               <div className="box-title-md">Informações da Conta</div>
-              <div className="wallet-info" style={{margin: 0, gap: '0.5rem'}}>
-                <div className="wallet-account-name" style={{fontSize: '1rem', marginBottom: '0.2rem'}}>
+              <div className="wallet-info">
+                <div className="wallet-account-name">
                   {selectedAccount?.meta.name || 'Conta Polkadot'}
                 </div>
-                <div className="wallet-address" style={{fontSize: '0.8rem', padding: '0.2rem 0.5rem'}}>
+                <div className="wallet-address">
                   {selectedAccount?.address}
                 </div>
-                <div className="wallet-balance" style={{fontSize: '1.2rem', marginBottom: '0.2rem'}}>
+                <div className="wallet-balance">
                   {balance} DOT
                 </div>
-                <div className="wallet-status" style={{fontSize: '0.9rem', padding: '0.2rem 0.5rem'}}>
+                <div className="wallet-status">
                   Status: Conectado
                 </div>
               </div>
