@@ -1,232 +1,232 @@
-# Documentação Crítica: Pipeline Híbrido de Leitura e Indexação de Markdown para RAG e Consulta Direta (MCP)
+# Documentación Crítica: Pipeline Híbrido de Lectura e Indexación de Markdown para RAG y Consulta Directa (MCP)
 
-## Visão Geral
+## Visión General
 
-Este documento descreve um pipeline híbrido para ingestão, indexação e consulta de arquivos Markdown, combinando as vantagens de RAG (Retrieval-Augmented Generation) para dados estáticos e MCP/consulta direta para dados dinâmicos. O objetivo é criar uma solução robusta, eficiente e alinhada ao ecossistema Polkadot, com potencial para evoluir para um SaaS integrado a carteiras Polkadot.
+Este documento describe un pipeline híbrido para ingestión, indexación y consulta de archivos Markdown, combinando las ventajas de RAG (Retrieval-Augmented Generation) para datos estáticos y MCP/consulta directa para datos dinámicos. El objetivo es crear una solución robusta, eficiente y alineada al ecosistema Polkadot, con potencial para evolucionar hacia un SaaS integrado a carteras Polkadot.
 
 ---
 
-## 1. Forkar Diretório Alvo
+## 1. Forkear Directorio Objetivo
 
-**Pré-requisitos:**
-- Permissão de leitura e escrita no diretório alvo.
-- Diretório forkeado do repositório de interesse no GitHub.
+**Prerrequisitos:**
+- Permiso de lectura y escritura en el directorio objetivo.
+- Directorio forkado del repositorio de interés en GitHub.
 
 **Problema:**  
-Nem sempre o repositório original está sob seu controle, então forkar garante independência e rastreabilidade das alterações.
+No siempre el repositorio original está bajo tu control, entonces forkear garantiza independencia y rastreabilidad de las alteraciones.
 
-**Solução:**
-- Sempre forke o repositório para seu perfil antes de iniciar o pipeline.
-- Sincronize periodicamente para manter o conteúdo atualizado.
+**Solución:**
+- Siempre fork el repositorio para tu perfil antes de iniciar el pipeline.
+- Sincroniza periódicamente para mantener el contenido actualizado.
 
 ---
 
-## 2. Leitura e Indexação dos Arquivos Markdown
+## 2. Lectura e Indexación de los Archivos Markdown
 
-**Pré-requisitos:**
-- Ambiente Python ou Rust.
-- Biblioteca para leitura recursiva de diretórios.
+**Prerrequisitos:**
+- Ambiente Python o Rust.
+- Biblioteca para lectura recursiva de directorios.
 
 **Problema:**  
-Arquivos não Markdown podem poluir o processamento e aumentar o custo computacional.
+Archivos no Markdown pueden contaminar el procesamiento y aumentar el costo computacional.
 
-**Solução:**
-- Filtrar e remover todos os arquivos que não sejam `.md`, preservando apenas a estrutura de pastas.
-- Adicionar cabeçalho de indexação (tags, título, localização) a cada fragmento para rastreabilidade e busca eficiente.
+**Solución:**
+- Filtrar y remover todos los archivos que no sean `.md`, preservando apenas la estructura de carpetas.
+- Agregar encabezado de indexación (tags, título, localización) a cada fragmento para rastreabilidad y búsqueda eficiente.
 
 ---
 
-## 3. Classificação: Dado Estático vs Dinâmico
+## 3. Clasificación: Dato Estático vs Dinámico
 
-**Pré-requisitos:**
-- Definição clara do que é dado estático (documentação, histórico, regras) e dinâmico (preços, métricas, status).
+**Prerrequisitos:**
+- Definición clara de lo que es dato estático (documentación, histórico, reglas) y dinámico (precios, métricas, status).
 
 **Problema:**
-- Misturar dados dinâmicos em uma RAG pode gerar respostas desatualizadas.
+- Mezclar datos dinámicos en una RAG puede generar respuestas desactualizadas.
 
-**Solução:**
-- Classifique cada fragmento/registro como estático ou dinâmico:
-  - **Estático:** Indexar na RAG.
-  - **Dinâmico:** Gerar referência para consulta direta (endpoint, JSON, API, banco).
-- Mantenha metadados indicando a natureza do dado.
+**Solución:**
+- Clasifica cada fragmento/registro como estático o dinámico:
+  - **Estático:** Indexar en la RAG.
+  - **Dinámico:** Generar referencia para consulta directa (endpoint, JSON, API, banco).
+- Mantén metadatos indicando la naturaleza del dato.
 
 ---
 
-## 4. Quebra Inicial dos Arquivos
+## 4. Quebra Inicial de los Archivos
 
-**Pré-requisitos:**
-- Biblioteca para manipulação de Markdown.
-- (Opcional) Acesso a uma LLM para segmentação semântica.
+**Prerrequisitos:**
+- Biblioteca para manipulación de Markdown.
+- (Opcional) Acceso a una LLM para segmentación semántica.
 
 **Problema:**  
-Fragmentos muito grandes dificultam a busca e podem exceder limites da RAG; fragmentos muito pequenos perdem contexto.
+Fragmentos muy grandes dificultan la búsqueda y pueden exceder límites de la RAG; fragmentos muy pequeños pierden contexto.
 
-**Soluções:**
-- **Quebra Mecânica:**  
-  - Divida por títulos, parágrafos ou blocos de texto.
-  - Defina um limite de tamanho (ex: 500-1000 caracteres ou 100-200 tokens).
-  - Vantagem: Simples, rápido, baixo custo.
-  - Limitação: Pode cortar ideias no meio.
-- **Quebra Semântica com LLM:**  
-  - Use uma LLM para sugerir pontos de corte mais naturais.
-  - Vantagem: Preserva contexto e sentido.
-  - Limitação: Mais caro e lento.
-- **Estratégia Recomendada:**  
-  - Use quebra mecânica como padrão e recorra à LLM apenas para fragmentos problemáticos.
+**Soluciones:**
+- **Quebra Mecánica:**  
+  - Divide por títulos, párrafos o bloques de texto.
+  - Define un límite de tamaño (ex: 500-1000 caracteres o 100-200 tokens).
+  - Ventaja: Simple, rápido, bajo costo.
+  - Limitación: Puede cortar ideas en el medio.
+- **Quebra Semántica con LLM:**  
+  - Usa una LLM para sugerir puntos de corte más naturales.
+  - Ventaja: Preserva contexto y sentido.
+  - Limitación: Más caro y lento.
+- **Estrategia Recomendada:**  
+  - Usa quebra mecánica como padrón y recurre a la LLM apenas para fragmentos problemáticos.
 
 ---
 
-## 5. Enriquecimento Semântico de Imagens (Captioning)
+## 5. Enriquecimiento Semántico de Imágenes (Captioning)
 
-**Pré-requisitos:**
-- Acesso a uma LLM ou modelo de captioning de imagens (ex: BLIP, GPT-4 Vision).
+**Prerrequisitos:**
+- Acceso a una LLM o modelo de captioning de imágenes (ex: BLIP, GPT-4 Vision).
 
 **Problema:**  
-Imagens sem contexto textual são inúteis para a RAG e podem ser ignoradas em buscas.
+Imágenes sin contexto textual son inútiles para la RAG y pueden ser ignoradas en búsquedas.
 
-**Solução:**
-- Para cada imagem, gere uma descrição textual (caption) usando uma LLM.
-- Inclua o caption no campo `imagens` do fragmento, junto com a URL, posição e alt-text.
-- **Desafio:** O caption pode aumentar muito o tamanho do fragmento.
-- **Solução:** Se o fragmento ficar grande demais após o enriquecimento, envie-o para nova quebra/refino (ver passo 6).
+**Solución:**
+- Para cada imagen, genera una descripción textual (caption) usando una LLM.
+- Incluye el caption en el campo `imágenes` del fragmento, junto con la URL, posición y alt-text.
+- **Desafío:** El caption puede aumentar mucho el tamaño del fragmento.
+- **Solución:** Si el fragmento queda grande demais después del enriquecimiento, envíalo para nueva quebra/refino (ver paso 6).
 
 ---
 
-## 6. Validação de Tamanho dos Fragmentos
+## 6. Validación de Tamaño de los Fragmentos
 
-**Pré-requisitos:**
-- Definição clara do limite de tamanho aceito pela RAG (tokens ou bytes).
-- Função para contar tokens ou bytes do JSON.
+**Prerrequisitos:**
+- Definición clara del límite de tamaño aceptado por la RAG (tokens o bytes).
+- Función para contar tokens o bytes del JSON.
 
 **Problema:**  
-Fragmentos grandes demais não podem ser indexados ou consultados eficientemente na RAG.
+Fragmentos grandes demais no pueden ser indexados o consultados eficientemente en la RAG.
 
-**Solução:**
-- Após enriquecer cada fragmento, valide seu tamanho.
-- Se exceder o limite, envie o fragmento para nova quebra/refino (pode ser recursivo).
-- Use LLM para sugerir cortes em fragmentos semanticamente densos.
+**Solución:**
+- Después de enriquecer cada fragmento, valida su tamaño.
+- Si excede el límite, envía el fragmento para nueva quebra/refino (puede ser recursivo).
+- Usa LLM para sugerir cortes en fragmentos semánticamente densos.
 
 ---
 
-## 7. Conversão Final para JSON
+## 7. Conversión Final para JSON
 
-**Pré-requisitos:**
-- Biblioteca para manipulação de JSON.
+**Prerrequisitos:**
+- Biblioteca para manipulación de JSON.
 
 **Problema:**  
-Estruturas inconsistentes dificultam a ingestão e a busca.
+Estructuras inconsistentes dificultan la ingestión y la búsqueda.
 
-**Solução:**
-- Padronize a estrutura do JSON: metadados, conteúdo, links, imagens (com captions), e referência para dados dinâmicos.
-- Valide o JSON antes de salvar/enviar.
+**Solución:**
+- Estandariza la estructura del JSON: metadatos, contenido, links, imágenes (con captions), y referencia para datos dinámicos.
+- Valida el JSON antes de salvar/enviar.
 
 ---
 
-## 8. Envio dos Dados
+## 8. Envío de los Datos
 
-**Pré-requisitos:**
-- Permissão de escrita no diretório de integração.
-- Biblioteca para escrita de arquivos JSON.
+**Prerrequisitos:**
+- Permiso de escritura en el directorio de integración.
+- Biblioteca para escritura de archivos JSON.
 
 **Problema:**  
-Latência ou falhas no envio podem causar perda de dados.
+Latencia o fallas en el envío pueden causar pérdida de datos.
 
-**Solução:**
-- Implemente retries e logs de erro.
-- Use escrita atômica para evitar arquivos corrompidos.
+**Solución:**
+- Implementa retries y logs de error.
+- Usa escritura atómica para evitar archivos corrompidos.
 
 ---
 
-## 9. Integração Híbrida com a AI (RAG + Consulta Direta)
+## 9. Integración Híbrida con la AI (RAG + Consulta Directa)
 
-**Pré-requisitos:**
-- Pipeline de ingestão configurado.
-- Permissão de leitura no diretório de integração.
-- Ferramentas para consulta direta (API, JSON, banco) e para busca na RAG.
+**Prerrequisitos:**
+- Pipeline de ingestión configurado.
+- Permiso de lectura en el directorio de integración.
+- Herramientas para consulta directa (API, JSON, banco) y para búsqueda en la RAG.
 
 **Problema:**
-- A ingestão pode falhar se o formato não for compatível ou se houver fragmentos grandes demais.
-- A AI pode retornar dados desatualizados se não souber diferenciar estático de dinâmico.
+- La ingestión puede fallar si el formato no es compatible o si hay fragmentos grandes demais.
+- La AI puede retornar datos desactualizados si no sabe diferenciar estático de dinámico.
 
-**Solução:**
-- Teste a ingestão com amostras antes de produção.
-- Implemente logs e alertas para falhas de ingestão.
-- Configure o LLM/agent para:
-  - Buscar contexto e conhecimento na RAG para dados estáticos.
-  - Consultar endpoints/JSON/banco em tempo real para dados dinâmicos.
-- Use function calling, plugins ou agents para orquestrar as fontes.
+**Solución:**
+- Prueba la ingestión con muestras antes de producción.
+- Implementa logs y alertas para fallas de ingestión.
+- Configura el LLM/agent para:
+  - Buscar contexto y conocimiento en la RAG para datos estáticos.
+  - Consultar endpoints/JSON/banco en tiempo real para datos dinámicos.
+- Usa function calling, plugins o agents para orquestar las fuentes.
 
 ---
 
-## 10. Pontos de Atenção e Melhorias Futuras
+## 10. Puntos de Atención y Mejoras Futuras
 
-**Problemas e Soluções:**
-- **Links e Imagens:**  
-  - Problema: Contexto pode ser perdido.
-  - Solução: Sempre inclua posição e contexto textual no JSON.
+**Problemas y Soluciones:**
+- **Links e Imágenes:**  
+  - Problema: Contexto puede ser perdido.
+  - Solución: Siempre incluye posición y contexto textual en el JSON.
 - **Performance:**  
-  - Problema: Grandes volumes podem travar o pipeline.
-  - Solução: Use streams, processamento incremental e paralelismo.
-- **Extensibilidade:**  
-  - Problema: Novos formatos ou integrações.
-  - Solução: Modularize o pipeline e documente cada etapa.
+  - Problema: Grandes volúmenes pueden trabar el pipeline.
+  - Solución: Usa streams, procesamiento incremental y paralelismo.
+- **Extensibilidad:**  
+  - Problema: Nuevos formatos o integraciones.
+  - Solución: Modulariza el pipeline y documenta cada etapa.
 - **SaaS:**
-  - O pipeline pode evoluir para um serviço SaaS, integrando autenticação via carteira Polkadot, cobrança por uso, e interface web para gestão dos dados.
+  - El pipeline puede evolucionar hacia un servicio SaaS, integrando autenticación via cartera Polkadot, cobranza por uso, e interfaz web para gestión de los datos.
 
 ---
 
-## 11. Python vs Rust: Prós e Contras
+## 11. Python vs Rust: Pros y Contras
 
 ### Python
-**Prós:**
-- Ecossistema maduro para IA, LLMs, processamento de texto e imagens.
-- Prototipagem rápida, fácil integração com APIs e bibliotecas de IA.
-- Mais fácil de encontrar exemplos e suporte para tasks de NLP e ML.
+**Pros:**
+- Ecosistema maduro para IA, LLMs, procesamiento de texto e imágenes.
+- Prototipado rápido, fácil integración con APIs y bibliotecas de IA.
+- Más fácil de encontrar ejemplos y soporte para tasks de NLP y ML.
 
 **Contras:**
-- Menor performance para grandes volumes de dados.
-- Gerenciamento de memória menos eficiente.
-- Menos alinhado com o ecossistema Polkadot.
+- Menor performance para grandes volúmenes de datos.
+- Gestión de memoria menos eficiente.
+- Menos alineado con el ecosistema Polkadot.
 
 ### Rust
-**Prós:**
-- Performance superior, uso eficiente de memória, concorrência segura.
-- Alinhamento total com o ecossistema Polkadot (substrate, parachains, etc.).
-- Ideal para produção, SaaS e integração nativa com blockchains.
+**Pros:**
+- Performance superior, uso eficiente de memoria, concurrencia segura.
+- Alineamiento total con el ecosistema Polkadot (substrate, parachains, etc.).
+- Ideal para producción, SaaS e integración nativa con blockchains.
 
 **Contras:**
-- Menos bibliotecas prontas para IA, LLMs e processamento de Markdown.
-- Curva de aprendizado maior.
-- Prototipagem mais lenta.
-- Integração com LLMs pode exigir wrappers ou chamadas externas.
+- Menos bibliotecas listas para IA, LLMs y procesamiento de Markdown.
+- Curva de aprendizaje mayor.
+- Prototipado más lento.
+- Integración con LLMs puede exigir wrappers o llamadas externas.
 
-**Recomendação:**
-- Prototipar rapidamente em Python, validando o fluxo e as integrações de IA.
-- Migrar para Rust para produção, performance, integração com Polkadot e SaaS.
-- Considerar arquitetura híbrida: partes críticas em Rust, IA e NLP em Python (via FFI, microserviços ou APIs internas).
+**Recomendación:**
+- Prototipar rápidamente en Python, validando el flujo y las integraciones de IA.
+- Migrar para Rust para producción, performance, integración con Polkadot y SaaS.
+- Considerar arquitectura híbrida: partes críticas en Rust, IA y NLP en Python (via FFI, microservicios o APIs internas).
 
 ---
 
-## 12. Pipeline Híbrido (Fluxo)
+## 12. Pipeline Híbrido (Flujo)
 
 ```mermaid
 flowchart TD
-    A[Forkar Diretório Alvo] --> B[Limpeza: só .md]
-    B --> C[Leitura e Indexação dos .md]
-    C --> D[Classificação: Estático ou Dinâmico]
-    D -->|Estático| E[Quebra, Enriquecimento, Validação, Indexação na RAG]
-    D -->|Dinâmico| F[Geração de referência para consulta direta (endpoint/JSON)]
-    E --> G[Conversão para JSON e envio]
+    A[Forkear Directorio Objetivo] --> B[Limpieza: solo .md]
+    B --> C[Lectura e Indexación de los .md]
+    C --> D[Clasificación: Estático o Dinámico]
+    D -->|Estático| E[Quebra, Enriquecimiento, Validación, Indexación en la RAG]
+    D -->|Dinámico| F[Generación de referencia para consulta directa (endpoint/JSON)]
+    E --> G[Conversión para JSON y envío]
     F --> G
-    G --> H[Ingestão e Orquestração Híbrida na AI]
+    G --> H[Ingestión y Orquestación Híbrida en la AI]
 ```
 
 ---
 
-## 13. Conclusão
+## 13. Conclusión
 
-Este pipeline híbrido garante que o conhecimento em Markdown seja transformado em dados estruturados, semanticamente enriquecidos (inclusive imagens), e prontos para indexação eficiente em sistemas RAG, enquanto dados dinâmicos são consultados em tempo real via MCP/API/JSON. 
+Este pipeline híbrido garantiza que el conocimiento en Markdown sea transformado en datos estructurados, semánticamente enriquecidos (inclusive imágenes), y listos para indexación eficiente en sistemas RAG, mientras datos dinámicos son consultados en tiempo real via MCP/API/JSON. 
 
-A escolha entre Python e Rust deve considerar o estágio do projeto, o ecossistema alvo (Polkadot) e a facilidade de integração com IA. Para SaaS, Rust é altamente recomendado para produção, mas Python acelera a prototipagem e integração com LLMs.
+La elección entre Python y Rust debe considerar el estadio del proyecto, el ecosistema objetivo (Polkadot) y la facilidad de integración con IA. Para SaaS, Rust es altamente recomendado para producción, pero Python acelera el prototipado e integración con LLMs.
 
-Se quiser exemplos de código para cada etapa em Python ou Rust, posso detalhar a implementação! 
+¡Si quieres ejemplos de código para cada etapa en Python o Rust, puedo detallar la implementación! 
