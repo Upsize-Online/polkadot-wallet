@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { Wallet, Check, Wallet2 } from 'lucide-react';
+import { Wallet, Check, Wallet2, AlertCircle, CheckCircle } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
@@ -22,18 +22,28 @@ export default function WalletConnect() {
   const [balance, setBalance] = useState<string>('0');
   const [apiError, setApiError] = useState<string | null>(null);
   const [showDisconnectInfo, setShowDisconnectInfo] = useState(false);
+  const [notification, setNotification] = useState<{type: 'success' | 'error' | 'info', message: string} | null>(null);
 
   // Simulação de dados da conta conectada
   const accountName = 'Minha Conta Polkadot';
   const accountAddress = '1x2y3z4a5b6c7d8e9f0g1h2i3j4k5l6m7n8o9p0q';
   const balanceInDOT = '12.3456';
 
+  // Mostrar notificação
+  const showNotification = (type: 'success' | 'error' | 'info', message: string) => {
+    setNotification({ type, message });
+    setTimeout(() => setNotification(null), 5000);
+  };
+
   // Conectar à rede Polkadot com fallback
   useEffect(() => {
     let isMounted = true;
     const tryConnectEndpoints = async (endpoints: string[], idx = 0): Promise<void> => {
       if (idx >= endpoints.length) {
-        if (isMounted) setApiError('Não foi possível conectar a nenhum nó Polkadot. Tente novamente mais tarde.');
+        if (isMounted) {
+          setApiError('Não foi possível conectar a nenhum nó Polkadot. Tente novamente mais tarde.');
+          showNotification('error', 'Erro de conexão com a rede Polkadot');
+        }
         return;
       }
       try {
@@ -43,6 +53,7 @@ export default function WalletConnect() {
         if (isMounted) {
           setApi(apiInstance);
           setApiError(null);
+          showNotification('success', 'Conectado à rede Polkadot com sucesso');
         }
       } catch (error) {
         if (isMounted) {
@@ -66,6 +77,7 @@ export default function WalletConnect() {
           setBalance(balanceInDOT.toFixed(4));
         } catch (error) {
           console.error('Erro ao buscar saldo:', error);
+          showNotification('error', 'Erro ao buscar saldo da conta');
         }
       }
     };
@@ -79,7 +91,7 @@ export default function WalletConnect() {
       const { web3Enable, web3Accounts } = await import('@polkadot/extension-dapp');
       const extensions = await web3Enable('Polkadot Wallet App');
       if (extensions.length === 0) {
-        alert('Nenhuma extensão de wallet encontrada.');
+        showNotification('error', 'Nenhuma extensão de wallet encontrada');
         setIsLoading(false);
         return;
       }
@@ -88,12 +100,13 @@ export default function WalletConnect() {
         setAccounts(allAccounts);
         setSelectedAccount(allAccounts[0]);
         setIsConnected(true);
+        showNotification('success', 'Wallet conectada com sucesso!');
       } else {
-        alert('Nenhuma conta encontrada. Certifique-se de ter uma extensão de wallet instalada.');
+        showNotification('error', 'Nenhuma conta encontrada. Certifique-se de ter uma extensão de wallet instalada.');
       }
     } catch (error) {
       console.error('Erro ao conectar wallet:', error);
-      alert('Erro ao conectar wallet. Verifique se você tem uma extensão de wallet instalada.');
+      showNotification('error', 'Erro ao conectar wallet. Verifique se você tem uma extensão de wallet instalada.');
     } finally {
       setIsLoading(false);
     }
@@ -105,6 +118,7 @@ export default function WalletConnect() {
     setIsConnected(false);
     setBalance('0');
     setShowDisconnectInfo(true);
+    showNotification('info', 'Wallet desconectada');
   };
 
   const handleDisconnectConfirm = () => {
@@ -113,6 +127,7 @@ export default function WalletConnect() {
 
   const handleAccountSelect = (account: InjectedAccountWithMeta) => {
     setSelectedAccount(account);
+    showNotification('success', `Conta ${account.meta.name} selecionada`);
   };
 
   // Remover duplicatas de contas pelo endereço
@@ -122,15 +137,43 @@ export default function WalletConnect() {
 
   if (apiError) {
     return (
-      <div className="box-vertical box-dark items-center justify-center text-center box-error">
-        <div className="box-title-lg center pink">Erro de Conexão</div>
-        <div className="wallet-status">{apiError}</div>
+      <div className="space-y-8">
+        <div className="box-vertical box-dark items-center justify-center text-center box-error">
+          <div className="box-title-lg center pink">Erro de Conexão</div>
+          <div className="wallet-status">{apiError}</div>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="btn-secondary mt-4"
+          >
+            Tentar Novamente
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="space-y-8">
+      {/* Notificação */}
+      {notification && (
+        <div className={`fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg flex items-center gap-3 transition-all duration-300 ${
+          notification.type === 'success' ? 'bg-green-500 text-white' :
+          notification.type === 'error' ? 'bg-red-500 text-white' :
+          'bg-blue-500 text-white'
+        }`}>
+          {notification.type === 'success' && <CheckCircle className="w-5 h-5" />}
+          {notification.type === 'error' && <AlertCircle className="w-5 h-5" />}
+          {notification.type === 'info' && <AlertCircle className="w-5 h-5" />}
+          <span>{notification.message}</span>
+          <button 
+            onClick={() => setNotification(null)}
+            className="ml-2 hover:opacity-70"
+          >
+            ×
+          </button>
+        </div>
+      )}
+
       {/* Box de Conexão - Mantém o mesmo layout em ambos os estados */}
       <div className="box-horizontal box-dark">
         {/* Coluna 1: Logo e texto */}
@@ -185,7 +228,10 @@ export default function WalletConnect() {
                   {balance} DOT
                 </div>
                 <div className="wallet-status">
-                  Status: Conectado
+                  <span className="status-indicator status-online">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    Conectado
+                  </span>
                 </div>
               </div>
             </>
