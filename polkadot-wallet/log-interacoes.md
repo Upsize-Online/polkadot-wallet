@@ -68,3 +68,8 @@ Indexação e documentação do esquema de cores Polkadot no globals.css (variá
 **Contexto:** Automação: layout e identidade visual Polkadot na Wallet
 **Mensagem:**
 Layout Polkadot aprimorado: fundo pink e preto nos boxes, logo gigante, colunas líquidas, alinhamento central importante e separadores de 2px
+
+## [29/06/2025, 10:56:34]
+**Contexto:** Automação: limpeza visual dos boxes, eliminando linhas indesejadas por CSS
+**Mensagem:**
+Remoção de linhas/pseudo-elementos de separação dos boxes horizontal, preto e rosa

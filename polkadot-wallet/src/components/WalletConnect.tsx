@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { Wallet, Check, Wallet2, AlertCircle, CheckCircle } from 'lucide-react';
+import { Wallet, Check, AlertCircle, CheckCircle } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
@@ -266,7 +266,7 @@ export default function WalletConnect() {
             onClick={isConnected ? disconnectWallet : connectWallet}
             disabled={isLoading}
           >
-            <Wallet2 className="wallet-icon wallet-icon-xl" />
+            <Wallet className="wallet-icon wallet-icon-xl" />
             <span className="wallet-action" data-text={isLoading ? 'Conectando...' : (isConnected ? 'DESCONECTAR' : 'CONECTAR')}>
               {isLoading 
                 ? 'Conectando...' 
