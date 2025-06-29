@@ -935,15 +935,13 @@ footer nav a {
   Utilize sempre as variáveis para garantir consistência visual e facilitar manutenção.
 */
 
-/*
-  Novas classes customizadas para Wallet Polkadot
-  ----------------------------------------------
-  .box-polkadot-black   - Fundo preto Polkadot
-  .box-polkadot-pink    - Fundo pink Polkadot
-  .logo-polkadot-giant  - Logo 400% maior (força !important)
-  .center-important     - Alinhamento central forçado (!important)
-  .liquid-col           - Coluna líquida, ocupa 1/3 do espaço, responsiva
-  .separator-vertical-2 - Separador vertical de 2px, altura 80%, centralizado
+/* Novas classes customizadas para Wallet Polkadot
+   .box-polkadot-black   - Fundo preto Polkadot
+   .box-polkadot-pink    - Fundo pink Polkadot
+   .logo-polkadot-giant  - Logo 400% maior (força !important)
+   .center-important     - Alinhamento central forçado (!important)
+   .liquid-col           - Coluna líquida, ocupa 1/3 do espaço, responsiva
+   .separator-vertical-2 - Separador vertical de 2px, altura 80%, centralizado
 */
 
 .box-polkadot-black {
@@ -1018,7 +1016,7 @@ footer nav a {
   background: var(--polkadot-white);
 }
 
-// Shadow customizado para box preto Polkadot no modo escuro
+/* Shadow customizado para box preto Polkadot no modo escuro */
 .dark .box-polkadot-black {
   box-shadow: 0 0 0 8px rgba(230,0,122,0.10), 0 8px 48px 0 rgba(230,0,122,0.55), 0 0 80px 20px rgba(230,0,122,0.35) !important;
   backdrop-filter: blur(32px) !important;
@@ -1033,7 +1031,7 @@ footer nav a {
   -webkit-backdrop-filter: none !important;
 }
 
-// Centralização e branco forçado para textos do box pink
+/* Centralização e branco forçado para textos do box pink */
 .center-white-important {
   text-align: center !important;
   color: var(--polkadot-white) !important;
@@ -1045,7 +1043,7 @@ footer nav a {
   text-align: center !important;
 }
 
-// Branco forçado para instruções de conexão
+/* Branco forçado para instruções de conexão */
 .wallet-instructions-white, .wallet-instructions-white * {
   color: var(--polkadot-white) !important;
 }
