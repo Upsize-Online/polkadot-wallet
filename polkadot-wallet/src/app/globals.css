@@ -617,6 +617,7 @@ footer nav a {
   transition: all 0.2s;
   min-width: 200px;
   min-height: 120px;
+  box-shadow: none !important;
 }
 
 .btn-connect-wallet:hover {
@@ -668,10 +669,9 @@ footer nav a {
 }
 
 /* Mensagem de desconexão */
-.disconnect-message {
-  color: var(--foreground);
-  font-size: 0.9rem;
-  line-height: 1.5;
+.disconnect-message, .disconnect-box {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
 }
 
 .disconnect-message div {
@@ -1045,6 +1045,10 @@ footer nav a {
 
 /* Branco forçado para instruções de conexão */
 .wallet-instructions-white, .wallet-instructions-white * {
+  color: var(--polkadot-white) !important;
+}
+
+.header-admin-btn {
   color: var(--polkadot-white) !important;
 }
 
