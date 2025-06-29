@@ -709,6 +709,19 @@ footer nav a {
   margin: 0 auto;
 }
 
+/* Box de desconexão */
+.disconnect-box {
+  padding: 0.8rem;
+  margin: 0;
+  background: var(--violet);
+  border-radius: 1rem;
+}
+
+.disconnect-lime {
+  color: var(--lime);
+  margin-bottom: 10px;
+}
+
 /* Cores CSS personalizadas */
 :root {
   --polkadot-pink: #e50079;

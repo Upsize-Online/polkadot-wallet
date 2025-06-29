@@ -41,7 +41,7 @@ export default function Header() {
         {/* Logo à esquerda */}
         <div className="flex-shrink-0 header-logo-negative-margin">
           <Link href="/">
-            <Image src={logoSrc} alt="Logo" width={200} height={200} style={{ width: '200px', height: 'auto' }} className="logo-global" />
+            <Image src={logoSrc} alt="Logo" width={200} height={200} className="logo-global header-logo-size" />
           </Link>
         </div>
         {/* Menu desktop */}
@@ -72,7 +72,7 @@ export default function Header() {
               </svg>
             )}
           </button>
-          <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 uppercase" style={{color:'#fff'}}>ADMIN</button>
+          <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 uppercase">ADMIN</button>
         </div>
         {/* Menu mobile */}
         <div className="flex md:hidden items-center gap-4">
@@ -94,7 +94,7 @@ export default function Header() {
               </svg>
             )}
           </button>
-          <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-3 py-2 rounded-lg transition-colors duration-200 uppercase" style={{color:'#fff'}}>ADMIN</button>
+          <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-3 py-2 rounded-lg transition-colors duration-200 uppercase">ADMIN</button>
           <button
             className="header-hamburger-btn h-10 w-10 flex items-center justify-center rounded-lg bg-transparent"
             onClick={() => setMenuOpen(!menuOpen)}

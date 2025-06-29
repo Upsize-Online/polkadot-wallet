@@ -42,3 +42,8 @@ Vou ajustar o globals css para concentrar todos os estilos
 **Contexto:** AutoDev - polkadot-wallet/src/app/globals.css, polkadot-wallet/src/components/WalletConnect.tsx
 **Mensagem:**
 Commit automático - 2 arquivo(s) alterado(s)
+
+## [29/06/2025, 03:06:47]
+**Contexto:** AutoDev - polkadot-wallet/src/app/globals.css, polkadot-wallet/src/components/Header.tsx
+**Mensagem:**
+Commit automático - 2 arquivo(s) alterado(s)
