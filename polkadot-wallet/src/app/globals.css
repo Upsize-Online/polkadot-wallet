@@ -1030,11 +1030,11 @@ footer nav a {
   background: var(--polkadot-white);
 }
 
-/* Shadow customizado para box preto Polkadot no modo escuro */
+/* Shadow customizado para box preto Polkadot no modo escuro - blur maior e rosa mais claro */
 .dark .box-polkadot-black {
-  box-shadow: 0 0 0 4px rgba(230,0,122,0.08), 0 4px 24px 0 rgba(230,0,122,0.35), 0 0 40px 10px rgba(230,0,122,0.18) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 0 0 4px rgba(255,107,157,0.10), 0 8px 64px 0 rgba(255,107,157,0.45), 0 0 120px 30px rgba(255,107,157,0.18) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
   border: none !important;
   outline: none !important;
   position: relative !important;
