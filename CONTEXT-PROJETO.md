@@ -1,3 +1,9 @@
+# ⚠️ ATENÇÃO: PowerShell/CMD NÃO SUPORTA '&&' ⚠️
+
+**Nunca use '&&' ou comandos compostos no PowerShell/CMD!**
+- Sempre execute **um comando por vez**.
+- Isso evita erros e garante compatibilidade total no Windows.
+
 # Contexto Geral - Gerenciamento de Múltiplos Projetos
 
 ## 🎯 Objetivo Principal
