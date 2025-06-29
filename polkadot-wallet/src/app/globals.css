@@ -19,32 +19,39 @@
   Exemplo de uso: background: var(--polkadot-pink);
 */
 :root {
-    --background: #fff;
-    --foreground: #171717;
-    --subtitle: #7d8590;
-    --footer: #7d8590;
-    --admin: #e50079;
-    --subtitle-contrast: #171717;
-    --polkadot-pink: #E6007A;
-    --polkadot-purple: #6C5CE7;
-    --polkadot-black: #000000;
-    --polkadot-white: #FFFFFF;
-    --polkadot-gray: #747070;
-    --polkadot-blue: #1E90FF;
-    --polkadot-green: #22C55E;
-    --polkadot-orange: #FF9800;
-    --polkadot-yellow: #FFD600;
-    --polkadot-light-pink: #FF6B9D;
-    --polkadot-dark-bg: #0A0A0A;
-    --polkadot-lime: #E2FF3F;
-    --polkadot-violet: #6C5CE7;
-    --polkadot-cyan: #17F9FF;
-    --polkadot-storm-200: #D2D2E9;
-    --polkadot-storm-400: #A8A8C9;
-    --polkadot-storm-700: #767691;
-    --lime: #00ff00;
-    --violet: #8b5cf6;
-    --black: #000;
+  /* === Cores Oficiais Polkadot === */
+  --polkadot-pink: #E6007A;
+  --polkadot-black: #000000;
+  --polkadot-white: #FFFFFF;
+  --polkadot-lime: #E2FF3F;
+  --polkadot-violet: #6C5CE7;
+  --polkadot-cyan: #17F9FF;
+  --polkadot-storm-200: #D2D2E9;
+  --polkadot-storm-400: #A8A8C9;
+  --polkadot-storm-700: #767691;
+
+  /* === Variações e auxiliares usadas no projeto === */
+  --lime: #00ff00;
+  --violet: #8b5cf6;
+  --black: #000;
+  --polkadot-light-pink: #FF6B9D;
+  --polkadot-dark-bg: #0A0A0A;
+  --background: #fff;
+  --foreground: #171717;
+  --subtitle: #7d8590;
+  --footer: #7d8590;
+  --admin: #e50079;
+  --subtitle-contrast: #171717;
+  --polkadot-purple: #6C5CE7;
+  --polkadot-gray: #747070;
+  --polkadot-blue: #1E90FF;
+  --polkadot-green: #22C55E;
+  --polkadot-orange: #FF9800;
+  --polkadot-yellow: #FFD600;
+  --polkadot-storm-200: #D2D2E9;
+  --polkadot-storm-400: #A8A8C9;
+  --polkadot-storm-700: #767691;
+  --black: #000;
 }
 
 .dark {
