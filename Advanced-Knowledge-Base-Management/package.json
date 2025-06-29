@@ -1,0 +1,56 @@
+{
+  "name": "advanced-knowledge-base-management",
+  "version": "0.1.0",
+  "description": "SaaS platform for advanced knowledge base management with RAG and Polkadot integration",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "log": "node scripts/log-assistant.js"
+  },
+  "dependencies": {
+    "@polkadot/api": "^16.2.2",
+    "@polkadot/extension-dapp": "^0.60.1",
+    "@polkadot/extension-inject": "^0.60.1",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-toast": "^1.2.14",
+    "lucide-react": "^0.523.0",
+    "next": "^15.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "keywords": [
+    "saas",
+    "knowledge-base",
+    "rag",
+    "polkadot",
+    "nextjs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "Advanced Knowledge Base Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/advanced-knowledge-base-management.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+} 

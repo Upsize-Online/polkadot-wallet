@@ -1,0 +1,1140 @@
+@import "tailwindcss";
+
+/*
+  Esquema de Cores Polkadot
+  --------------------------------------
+  pink:        #E6007A   (Polkadot Pink)
+  purple:      #6C5CE7   (Polkadot Purple)
+  black:       #000000   (Polkadot Black)
+  white:       #FFFFFF   (Polkadot White)
+  gray:        #747070   (Polkadot Gray)
+  blue:        #1E90FF   (Polkadot Blue - destaque)
+  green:       #22C55E   (Polkadot Green - sucesso)
+  orange:      #FF9800   (Polkadot Orange - alerta)
+  yellow:      #FFD600   (Polkadot Yellow - destaque)
+  light-pink:  #FF6B9D   (Polkadot Light Pink)
+  dark-bg:     #0A0A0A   (Polkadot Dark Background)
+
+  Todas as cores estão disponíveis como variáveis CSS para uso consistente em toda a aplicação.
+  Exemplo de uso: background: var(--polkadot-pink);
+*/
+:root {
+  /* === Cores Oficiais Polkadot === */
+  --polkadot-pink: #E6007A;
+  --polkadot-black: #000000;
+  --polkadot-white: #FFFFFF;
+  --polkadot-lime: #E2FF3F;
+  --polkadot-violet: #6C5CE7;
+  --polkadot-cyan: #17F9FF;
+  --polkadot-storm-200: #D2D2E9;
+  --polkadot-storm-400: #A8A8C9;
+  --polkadot-storm-700: #767691;
+
+  /* === Variações e auxiliares usadas no projeto === */
+  --lime: #00ff00;
+  --violet: #8b5cf6;
+  --black: #000;
+  --polkadot-light-pink: #FF6B9D;
+  --polkadot-dark-bg: #0A0A0A;
+  --background: #fff;
+  --foreground: #171717;
+  --subtitle: #7d8590;
+  --footer: #7d8590;
+  --admin: #e50079;
+  --subtitle-contrast: #171717;
+  --polkadot-purple: #6C5CE7;
+  --polkadot-gray: #747070;
+  --polkadot-blue: #1E90FF;
+  --polkadot-green: #22C55E;
+  --polkadot-orange: #FF9800;
+  --polkadot-yellow: #FFD600;
+  --polkadot-storm-200: #D2D2E9;
+  --polkadot-storm-400: #A8A8C9;
+  --polkadot-storm-700: #767691;
+  --black: #000;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --subtitle: #bdbdbd;
+  --footer: #bdbdbd;
+  --admin: #e50079;
+  --subtitle-contrast: #fff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+header, footer {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+header a, footer a, header button, footer button, header span, footer span {
+  color: var(--foreground);
+}
+
+h1 {
+  color: #E6007A !important;
+  font-weight: 700 !important;
+  font-size: 2.25rem !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h2 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h3 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h4, h5, h6 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Subtítulo global - usado em todas as páginas */
+.subtitle-global {
+  color: #747070 !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Exceção: subtítulo dentro do box da carteira (fundo branco) no modo escuro */
+.dark .wallet-box .subtitle-global {
+  color: #171717 !important;
+}
+
+/* Regras de texto unificadas */
+p, li, span, div, section, article {
+  text-align: left;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Parágrafos - usado em todas as páginas */
+p {
+  font-weight: 300 !important;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+/* Garantir que parágrafos não herdem peso de fonte de elementos pais */
+div p, section p, article p {
+  font-weight: 300 !important;
+}
+
+/* Regra unificada para parágrafos em containers específicos */
+.max-w-6xl p, .text-center p, .text-justify p {
+  font-weight: 300 !important;
+  font-size: 0.9375rem !important;
+}
+
+/* Alinhamento de títulos - simplificado */
+.heading-center, .heading-center h1, .heading-center h2, .heading-center h3, .heading-center h4, .heading-center h5, .heading-center h6, .heading-center .subtitle-global {
+  text-align: center;
+}
+
+/* Logos - mantido para componentes */
+.logo-global {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.header-logo-size {
+  width: 200px;
+  height: auto;
+}
+
+.footer-logo-size {
+  width: 200px;
+  height: auto;
+}
+
+@media (max-width: 400px) {
+  .logo-global {
+    min-width: 200px;
+  }
+}
+
+/* Header e Footer - estilos unificados */
+.header-global {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(28.8px);
+  -webkit-backdrop-filter: blur(28.8px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.dark .header-global {
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(28.8px);
+  -webkit-backdrop-filter: blur(28.8px);
+  box-shadow: 0 4px 6px -1px rgba(229, 0, 121, 0.2), 0 2px 4px -1px rgba(229, 0, 121, 0.1), 0 0 20px rgba(229, 0, 121, 0.1);
+}
+
+/* Links do header e footer */
+.header-link, header a:not(.btn) {
+  color: #747070;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.header-link:hover, header a:not(.btn):hover {
+  color: #e50079;
+}
+
+.dark .header-link:hover, .dark header a:not(.btn):hover {
+  color: #fff;
+}
+
+.footer-link, footer a:not(.btn) {
+  color: #747070;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.footer-link:hover, footer a:not(.btn):hover {
+  color: #e50079;
+}
+
+.dark .footer-link:hover, .dark footer a:not(.btn):hover {
+  color: #fff;
+}
+
+/* Espaçamento do footer */
+footer nav, .footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  margin-bottom: 20px;
+}
+
+/* Botão global */
+.btn-global {
+  background: #e50079;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-global:hover:not(:disabled) {
+  background: rgba(229, 0, 121, 0.8);
+}
+
+.btn-global:disabled {
+  background: rgba(229, 0, 121, 0.4);
+  cursor: not-allowed;
+}
+
+/* Regras com especificidade máxima para garantir que os estilos sejam aplicados */
+html body div.max-w-6xl div.text-center h1 {
+  font-weight: 700 !important;
+  color: #E6007A !important;
+  font-size: 2.25rem !important;
+  text-align: center !important;
+}
+
+html body div.max-w-6xl div.text-center p.subtitle-global {
+  font-weight: 600 !important;
+  color: #747070 !important;
+  font-size: 1.125rem !important;
+  text-align: center !important;
+}
+
+/* Regras para todos os outros títulos com especificidade máxima */
+html body div.max-w-6xl h2 {
+  font-weight: 600 !important;
+  color: #E6007A !important;
+  font-size: 1.5rem !important;
+  text-align: left !important;
+}
+
+html body div.max-w-6xl h3 {
+  font-weight: 600 !important;
+  color: #E6007A !important;
+  font-size: 1.25rem !important;
+  text-align: left !important;
+}
+
+html body div.max-w-6xl h4,
+html body div.max-w-6xl h5,
+html body div.max-w-6xl h6 {
+  font-weight: 600 !important;
+  color: #E6007A !important;
+  font-size: 1.125rem !important;
+  text-align: left !important;
+}
+
+/* Media queries para alinhamento responsivo */
+@media (min-width: 768px) {
+  /* Telas maiores - alinhamento à esquerda */
+  html body div.max-w-6xl h2,
+  html body div.max-w-6xl h3,
+  html body div.max-w-6xl h4,
+  html body div.max-w-6xl h5,
+  html body div.max-w-6xl h6 {
+    text-align: left !important;
+  }
+  
+  html body div.max-w-6xl p {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Telas menores - alinhamento ao centro */
+  html body div.max-w-6xl h2,
+  html body div.max-w-6xl h3,
+  html body div.max-w-6xl h4,
+  html body div.max-w-6xl h5,
+  html body div.max-w-6xl h6 {
+    text-align: center !important;
+  }
+  
+  html body div.max-w-6xl p {
+    text-align: center !important;
+  }
+
+  .header-hamburger-btn {
+    margin-left: -22px !important;
+  }
+
+  .header-global, .footer-global {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Layout principal */
+main {
+  padding-top: 40px !important;
+}
+
+/* Garantir que todas as páginas tenham o mesmo espaçamento */
+.max-w-6xl {
+  padding-top: 0 !important;
+}
+
+/* Títulos H1 em todas as páginas */
+main h1 {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Sobrescrever classes Tailwind de margem */
+main .mb-8,
+main .text-center.mb-8 {
+  margin-bottom: 0 !important;
+}
+
+/* Garantir que o espaçamento seja consistente */
+main .text-center {
+  margin-bottom: 0 !important;
+}
+
+/* Links do menu centralizados */
+header nav a,
+footer nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Botão de alternância de tema */
+.header-theme-btn {
+  width: 31.68px;
+  height: 31.68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.header-theme-btn svg {
+  width: 31.68px !important;
+  height: 31.68px !important;
+  stroke-width: 2.4 !important;
+}
+
+.header-theme-btn:focus {
+  outline: none;
+}
+
+/* Cor do botão tema */
+.header-theme-btn svg {
+  stroke: #747070 !important;
+}
+
+.dark .header-theme-btn svg {
+  stroke: #ededed !important;
+}
+
+.header-theme-btn:hover svg {
+  stroke: #e50079 !important;
+}
+
+/* Botão hamburger */
+.header-hamburger-btn {
+  width: 83.6352px !important;
+  height: 83.6352px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.header-hamburger-btn svg {
+  width: 58.54464px !important;
+  height: 58.54464px !important;
+  stroke-width: 2.4 !important;
+}
+
+.header-hamburger-btn:focus {
+  outline: none;
+}
+
+/* Eliminar efeito hover do botão hamburger */
+.header-hamburger-btn:hover,
+.header-hamburger-btn:hover svg,
+.header-hamburger-btn:active,
+.header-hamburger-btn:active svg {
+  color: #e50079 !important;
+  stroke: #e50079 !important;
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Cor fixa para o botão hamburger */
+.header-hamburger-btn svg {
+  color: #e50079 !important;
+  stroke: #e50079 !important;
+}
+
+/* Padding lateral header e footer */
+.header-global, .footer-global {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+  .header-global, .footer-global {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .header-hamburger-btn {
+    margin-left: -22px !important;
+  }
+}
+
+/* Margens negativas header */
+@media (min-width: 768px) {
+  .header-logo-negative-margin {
+    margin-left: -32px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-logo-negative-margin {
+    margin-left: -16px !important;
+  }
+}
+
+/* =========================
+   COMPONENTE WALLET CONNECT - ESTILOS ESSENCIAIS
+   ========================= */
+
+/* Boxes principais */
+.box-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  background: var(--background);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.box-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: var(--background);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.box-dark {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.box-pink {
+  background: rgba(229, 0, 121, 0.1);
+  border: 1px solid rgba(229, 0, 121, 0.2);
+}
+
+/* Títulos dos boxes */
+.box-title-lg {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e50079;
+  margin-bottom: 1rem;
+}
+
+.box-title-md {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e50079;
+  margin-bottom: 0.75rem;
+}
+
+.box-subtitle {
+  font-size: 1rem;
+  color: var(--subtitle);
+  margin-bottom: 1rem;
+}
+
+.box-subtitle.center {
+  text-align: center;
+}
+
+/* Listas dos boxes */
+.box-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(229, 0, 121, 0.1);
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.box-list li:last-child {
+  border-bottom: none;
+}
+
+.box-list-sm {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-list-sm li {
+  padding: 0.25rem 0;
+  font-size: 0.8rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+/* Status e informações da wallet */
+.wallet-status {
+  font-size: 0.9rem;
+  color: var(--foreground);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(229, 0, 121, 0.1);
+}
+
+.wallet-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.wallet-account-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e50079;
+  margin-bottom: 0.2rem;
+}
+
+.wallet-address {
+  font-size: 0.8rem;
+  color: var(--subtitle);
+  padding: 0.2rem 0.5rem;
+  background: rgba(229, 0, 121, 0.1);
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+.wallet-balance {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e50079;
+  margin-bottom: 0.2rem;
+}
+
+/* Botão de conexão da wallet */
+.btn-connect-wallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #e50079;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 200px;
+  min-height: 120px;
+  box-shadow: none !important;
+}
+
+.btn-connect-wallet:hover {
+  background: rgba(229, 0, 121, 0.8);
+  transform: translateY(-2px);
+}
+
+.btn-connect-wallet:disabled {
+  background: rgba(229, 0, 121, 0.4);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.wallet-icon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.wallet-icon.wallet-icon-xl, .wallet-icon-xl svg {
+  width: 4rem !important;
+  height: 4rem !important;
+  min-width: 4rem !important;
+  min-height: 4rem !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.wallet-action {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Logo Polkadot */
+.logo-polkadot {
+  width: 4rem;
+  height: 4rem;
+}
+
+.box-img-lg {
+  width: 5rem;
+  height: 5rem;
+}
+
+/* Mensagem de desconexão */
+.disconnect-message, .disconnect-box {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
+}
+
+.disconnect-message div {
+  margin-bottom: 10px;
+}
+
+.disconnect-message div:last-child {
+  margin-bottom: 0;
+}
+
+/* Botão de confirmação de desconexão */
+.btn-disconnect-confirm {
+  background: var(--lime, #00ff00);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-disconnect-confirm:hover {
+  background: rgba(0, 255, 0, 0.8);
+}
+
+/* Box de erro de conexão */
+.box-error {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Box de desconexão */
+.disconnect-box {
+  padding: 0.8rem;
+  margin: 0;
+  background: var(--violet);
+  border-radius: 1rem;
+}
+
+.disconnect-lime {
+  color: var(--lime) !important;
+  font-weight: 600;
+}
+
+/* Cores CSS personalizadas */
+:root {
+  --polkadot-pink: #e50079;
+  --violet: #8b5cf6;
+  --lime: #00ff00;
+  --black: #000;
+}
+
+/* Responsividade para boxes */
+@media (max-width: 768px) {
+  .box-horizontal {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .btn-connect-wallet {
+    min-width: 150px;
+    min-height: 100px;
+    padding: 1rem;
+  }
+  
+  .wallet-icon.wallet-icon-xl, .wallet-icon-xl svg {
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+  }
+}
+
+/* Novas classes para NetworkSelector e DashboardStats */
+.hero-title {
+  color: #e50079 !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+  background: linear-gradient(135deg, #e50079 0%, #ff6b9d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-network-selector {
+  background: linear-gradient(135deg, #e50079 0%, #ff6b9d 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-network-selector:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(229, 0, 121, 0.3);
+}
+
+.btn-network-selector:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(229, 0, 121, 0.1);
+  color: #e50079;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e50079;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+  background: #e50079;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(229, 0, 121, 0.3);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.box-text-sm {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.box-text-sm.center {
+  text-align: center;
+}
+
+/* Animações para os cards de estatísticas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box-vertical {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.box-vertical:nth-child(1) { animation-delay: 0.1s; }
+.box-vertical:nth-child(2) { animation-delay: 0.2s; }
+.box-vertical:nth-child(3) { animation-delay: 0.3s; }
+.box-vertical:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsividade para os novos componentes */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .btn-network-selector {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .btn-secondary {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Melhorias visuais para o dashboard */
+.box-vertical .text-2xl {
+  font-weight: 700;
+  background: linear-gradient(135deg, #e50079 0%, #ff6b9d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover effects para os cards */
+.box-vertical:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(229, 0, 121, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Status indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.status-online {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.status-offline {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.dark .loading-skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/*
+  Tarefa documentada: Esquema de cores Polkadot indexado em variáveis CSS globais.
+  Cores baseadas na identidade visual oficial da Polkadot e tons auxiliares para UI/UX.
+  Utilize sempre as variáveis para garantir consistência visual e facilitar manutenção.
+*/
+
+/* Novas classes customizadas para Wallet Polkadot
+   .box-polkadot-black   - Fundo preto Polkadot
+   .box-polkadot-pink    - Fundo pink Polkadot
+   .logo-polkadot-giant  - Logo 400% maior (força !important)
+   .center-important     - Alinhamento central forçado (!important)
+   .liquid-col           - Coluna líquida, ocupa 1/3 do espaço, responsiva
+   .separator-vertical-2 - Separador vertical de 2px, altura 80%, centralizado
+*/
+
+.box-polkadot-black {
+  background: var(--polkadot-black) !important;
+  color: var(--polkadot-white) !important;
+}
+
+.box-polkadot-pink {
+  background: var(--polkadot-pink) !important;
+  color: var(--polkadot-white) !important;
+}
+
+.logo-polkadot-giant {
+  width: 400px !important;
+  height: auto !important;
+  max-width: 100% !important;
+  min-width: 200px !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Espaçamento entre logo e texto na coluna da logo */
+.liquid-col > .logo-polkadot-giant + .box-subtitle {
+  margin-top: 30px !important;
+}
+
+@media (max-width: 900px) {
+  .logo-polkadot-giant {
+    width: 220px !important;
+    min-width: 120px !important;
+  }
+}
+
+.center-important {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.text-justify-important {
+  text-align: justify !important;
+}
+
+.liquid-col {
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .liquid-col {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Shadow customizado para box preto Polkadot no modo escuro - blur maior, área menor, intensidade maior */
+.dark .box-polkadot-black {
+  box-shadow: 0 0 0 1px rgba(230,0,122,0.35), 0 2px 24px 0 rgba(230,0,122,0.75), 0 0 48px 8px rgba(230,0,122,0.45) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border: none !important;
+  outline: none !important;
+  position: relative !important;
+  z-index: 1;
+}
+.box-polkadot-black {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Centralização e branco forçado para textos do box pink */
+.center-white-important {
+  text-align: center !important;
+  color: var(--polkadot-white) !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.box-polkadot-pink, .box-polkadot-pink * {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
+}
+
+/* Branco forçado para instruções de conexão */
+.wallet-instructions-white, .wallet-instructions-white * {
+  color: var(--polkadot-white) !important;
+}
+
+.header-admin-btn {
+  color: var(--polkadot-white) !important;
+}
+
+/* Forçar branco nas instruções de conexão no modo claro */
+.box-list-sm.center-important li {
+  color: var(--polkadot-white) !important;
+}
+
+/* Centralizar instruções de conexão (modo claro) */
+.box-list-sm.center-important {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.box-list-sm.center-important li {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
+  width: 100%;
+}
+
+/* Centralização absoluta do texto do box roxo de desconexão */
+.disconnect-box, .disconnect-message, .disconnect-box *, .disconnect-message * {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.disconnect-box {
+  background: var(--violet) !important;
+}
+
+/* 6. Aumentar tamanho da palavra Segurança no box pink */
+.box-polkadot-pink .box-title-lg {
+  font-size: 2.2rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em;
+}
+
+/* Forçar tamanho do ícone Wallet2 (carteira) no botão usando seletor SVG direto - agora 160px desktop, 96px mobile */
+.btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
+  width: 160px !important;
+  height: 160px !important;
+  min-width: 160px !important;
+  min-height: 160px !important;
+  max-width: 160px !important;
+  max-height: 160px !important;
+  display: block !important;
+  margin: 0 auto 12px auto !important;
+}
+@media (max-width: 768px) {
+  .btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+    min-height: 96px !important;
+    max-width: 96px !important;
+    max-height: 96px !important;
+  }
+}
+
+/* 1. Centralizar verticalmente o título Segurança na célula do box pink */
+.box-polkadot-pink .liquid-col:first-child {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100%;
+}
+
+/* 2. Separadores verticais do box pink: 80% da altura, centralizados verticalmente (desktop) */
+@media (min-width: 769px) {
+  .box-polkadot-pink .separator-vertical-2 {
+    height: 80% !important;
+    align-self: center !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    position: relative;
+    top: 0;
+    bottom: 0;
+  }
+}
+
