@@ -637,7 +637,7 @@ footer nav a {
   color: white;
 }
 
-.wallet-icon-xl {
+.wallet-icon.wallet-icon-xl, .wallet-icon-xl svg {
   width: 4rem !important;
   height: 4rem !important;
   min-width: 4rem !important;
@@ -719,8 +719,8 @@ footer nav a {
 }
 
 .disconnect-lime {
-  color: var(--lime);
-  margin-bottom: 10px;
+  color: var(--lime) !important;
+  font-weight: 600;
 }
 
 /* Cores CSS personalizadas */
@@ -750,7 +750,7 @@ footer nav a {
     padding: 1rem;
   }
   
-  .wallet-icon-xl {
+  .wallet-icon.wallet-icon-xl, .wallet-icon-xl svg {
     width: 3rem !important;
     height: 3rem !important;
     min-width: 3rem !important;
@@ -900,6 +900,9 @@ footer nav a {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .status-online {
@@ -1029,9 +1032,9 @@ footer nav a {
 
 /* Shadow customizado para box preto Polkadot no modo escuro */
 .dark .box-polkadot-black {
-  box-shadow: 0 0 0 8px rgba(230,0,122,0.10), 0 8px 48px 0 rgba(230,0,122,0.55), 0 0 80px 20px rgba(230,0,122,0.35) !important;
-  backdrop-filter: blur(32px) !important;
-  -webkit-backdrop-filter: blur(32px) !important;
+  box-shadow: 0 0 0 4px rgba(230,0,122,0.08), 0 4px 24px 0 rgba(230,0,122,0.35), 0 0 40px 10px rgba(230,0,122,0.18) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
   border: none !important;
   outline: none !important;
   position: relative !important;
@@ -1091,5 +1094,18 @@ footer nav a {
   align-items: center !important;
   display: flex !important;
   flex-direction: column !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.disconnect-box {
+  background: var(--violet) !important;
+}
+
+/* 6. Aumentar tamanho da palavra Segurança no box pink */
+.box-polkadot-pink .box-title-lg {
+  font-size: 2.2rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em;
 }
 
