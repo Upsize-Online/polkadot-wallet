@@ -109,4 +109,22 @@ node scripts/log-assistant.js "Descrição" "Contexto"
 
 **Status do Projeto**: 🟡 Em desenvolvimento inicial
 **Última Atualização**: 29/06/2025
-**Versão**: 0.1.0 
+**Versão**: 0.1.0
+
+## Passos para garantir o CSS
+
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
+2. Certifique-se de que existe o arquivo postcss.config.mjs na raiz do projeto:
+   ```js
+   const config = {
+     plugins: ["@tailwindcss/postcss"],
+   };
+   export default config;
+   ```
+3. Rode o projeto normalmente:
+   ```bash
+   npm run dev
+   ``` 

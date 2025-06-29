@@ -4,12 +4,13 @@
   "description": "SaaS platform for advanced knowledge base management with RAG and Polkadot integration",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "dev:turbopack": "next dev --turbopack",
     "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "log": "node scripts/log-assistant.js"
+    "log": "node scripts/log-assistant.js",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@polkadot/api": "^16.2.2",
@@ -21,18 +22,21 @@
     "lucide-react": "^0.523.0",
     "next": "^15.3.4",
     "react": "^19.1.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss-import": "^15.1.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@eslint/eslintrc": "^3.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20.19.2",
     "@types/react": "^19.1.8",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5"
+    "typescript": "^5.0.0",
+    "postcss": "^8.4.0"
   },
   "keywords": [
     "saas",
@@ -41,7 +45,11 @@
     "polkadot",
     "nextjs",
     "typescript",
-    "tailwindcss"
+    "tailwindcss",
+    "unbounded",
+    "arial",
+    "helvetica",
+    "sans-serif"
   ],
   "author": "Advanced Knowledge Base Team",
   "license": "MIT",

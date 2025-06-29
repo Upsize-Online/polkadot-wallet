@@ -178,4 +178,8 @@ Exemplo:
 **Última Atualização**: 29/06/2025
 **Versão**: 0.1.0
 
-**Este documento deve ser consultado sempre que trabalhar neste projeto específico.** 
+**Este documento deve ser consultado sempre que trabalhar neste projeto específico.**
+
+## Observação importante
+
+Para garantir consistência visual e evitar bugs de CSS, mantenha a configuração de Tailwind, PostCSS e fontes idêntica ao projeto polkadot-wallet, exceto pelos links do topo. 
