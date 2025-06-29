@@ -38,11 +38,13 @@ export default function DashboardStats() {
 
         // Validadores ativos
         const validators = await api.query.session.validators();
-        const activeValidators = validators.length;
+        const validatorsArr = (validators && typeof validators.toJSON === 'function') ? validators.toJSON() : [];
+        const activeValidators = Array.isArray(validatorsArr) ? validatorsArr.length : 0;
 
         // Era index seguro
         const activeEra = await api.query.staking.activeEra();
-        const eraIndex = activeEra.isSome ? activeEra.unwrap().index : 0;
+        const eraJson = activeEra && typeof activeEra.toJSON === 'function' ? activeEra.toJSON() : { index: 0 };
+        const eraIndex = eraJson && typeof eraJson.index === 'number' ? eraJson.index : 0;
         const staking = await api.query.staking.erasTotalStake(eraIndex);
         const totalStaked = (Number(staking.toString()) / Math.pow(10, 10)).toLocaleString('en-US', { maximumFractionDigits: 0 });
 
