@@ -36,6 +36,15 @@
     --polkadot-yellow: #FFD600;
     --polkadot-light-pink: #FF6B9D;
     --polkadot-dark-bg: #0A0A0A;
+    --polkadot-lime: #E2FF3F;
+    --polkadot-violet: #6C5CE7;
+    --polkadot-cyan: #17F9FF;
+    --polkadot-storm-200: #D2D2E9;
+    --polkadot-storm-400: #A8A8C9;
+    --polkadot-storm-700: #767691;
+    --lime: #00ff00;
+    --violet: #8b5cf6;
+    --black: #000;
 }
 
 .dark {
