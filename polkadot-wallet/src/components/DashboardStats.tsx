@@ -43,8 +43,12 @@ export default function DashboardStats() {
 
         // Era index seguro
         const activeEra = await api.query.staking.activeEra();
-        const eraJson = activeEra && typeof activeEra.toJSON === 'function' ? activeEra.toJSON() : { index: 0 };
-        const eraIndex = eraJson && typeof eraJson.index === 'number' ? eraJson.index : 0;
+        const eraJson = activeEra && typeof activeEra.toJSON === 'function' ? activeEra.toJSON() : 0;
+        const eraIndex = typeof eraJson === 'object' && eraJson !== null && 'index' in eraJson
+          ? (eraJson as any).index
+          : typeof eraJson === 'number'
+            ? eraJson
+            : 0;
         const staking = await api.query.staking.erasTotalStake(eraIndex);
         const totalStaked = (Number(staking.toString()) / Math.pow(10, 10)).toLocaleString('en-US', { maximumFractionDigits: 0 });
 

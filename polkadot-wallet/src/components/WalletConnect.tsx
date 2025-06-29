@@ -23,6 +23,7 @@ export default function WalletConnect() {
   const [apiError, setApiError] = useState<string | null>(null);
   const [showDisconnectInfo, setShowDisconnectInfo] = useState(false);
   const [notification, setNotification] = useState<{type: 'success' | 'error' | 'info', message: string} | null>(null);
+  const [dotPrice, setDotPrice] = useState<number | null>(null);
 
   // Simulação de dados da conta conectada
   const accountName = 'Minha Conta Polkadot';
@@ -83,6 +84,24 @@ export default function WalletConnect() {
     };
     fetchBalance();
   }, [api, selectedAccount]);
+
+  // Buscar preço do DOT em tempo real
+  useEffect(() => {
+    const fetchDotPrice = async () => {
+      try {
+        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=polkadot&vs_currencies=usd');
+        const data = await res.json();
+        if (data.polkadot && data.polkadot.usd) {
+          setDotPrice(data.polkadot.usd);
+        }
+      } catch (e) {
+        setDotPrice(null);
+      }
+    };
+    fetchDotPrice();
+    const interval = setInterval(fetchDotPrice, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Função de conexão real com extensão Polkadot.js
   const connectWallet = async () => {
@@ -225,7 +244,15 @@ export default function WalletConnect() {
                   {selectedAccount?.address}
                 </div>
                 <div className="wallet-balance">
+                  {/* Preço do DOT acima do saldo */}
+                  {dotPrice !== null && (
+                    <div className="text-xs text-gray-400 mb-1">Preço DOT: ${dotPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  )}
+                  {/* Saldo e valor em dólares */}
                   {balance} DOT
+                  {dotPrice !== null && (
+                    <span className="ml-2 text-xs text-green-400 font-semibold">≈ ${(parseFloat(balance) * dotPrice).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  )}
                 </div>
                 <div className="wallet-status">
                   <span className="status-indicator status-online">
