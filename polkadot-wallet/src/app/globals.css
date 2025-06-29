@@ -502,7 +502,7 @@ footer nav a {
 
 .box-horizontal {
   display: flex;
-  align-items: center;
+  align-items: stretch !important;
   justify-content: space-between;
   padding: 1.5rem;
   margin: 1rem 0;
@@ -1017,6 +1017,7 @@ footer nav a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100% !important;
 }
 
 @media (max-width: 768px) {
@@ -1035,6 +1036,9 @@ footer nav a {
   margin: 0 1rem;
   align-self: center;
   border-radius: 2px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .box-polkadot-black .separator-vertical-2 {
