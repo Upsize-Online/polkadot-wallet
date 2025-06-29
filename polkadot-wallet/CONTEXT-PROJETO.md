@@ -100,6 +100,23 @@ Este projeto serve como **base de referência** para outros projetos similares:
 - **Última atualização**: 29/06/2025
 - **Próxima fase**: Integração com Advanced Knowledge Base Management
 
+## Procedimento Padrão para Execução de Tarefas em Bloco
+
+Sempre que executar tarefas em bloco, utilize uma tabela de acompanhamento com os campos:
+- **Tarefa** (use '>>' para subtarefas)
+- **Status** (🟢 Concluído, 🟡 Pendente, 🔴 Não iniciado)
+- **Projeto** (Wallet, SaaS, Raiz, etc.)
+
+Exemplo:
+| Tarefa | Status | Projeto |
+|--------|--------|---------|
+| 2.1. Topo (Header) | 🟡 Pendente | SaaS |
+| >> 2.1.1. Ajustar links | 🔴 Não iniciado | SaaS |
+
+**Sempre que uma tarefa for concluída, a tabela de status deve ser atualizada e impressa antes de prosseguir para a próxima ação.**
+
+**Toda melhoria de processo ou ajuste de protocolo que surgir durante a execução deve ser registrada na tabela e incorporada à documentação de contexto.**
+
 ---
 
 **Este documento deve ser consultado sempre que trabalhar neste projeto específico.** 
