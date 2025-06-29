@@ -23,6 +23,27 @@ test/ (raiz)
     └── src/
 ```
 
+## 🎯 Scripts de Desenvolvimento na Raiz
+
+### Comandos Disponíveis
+- `npm run dev` - Exibe instruções para iniciar projetos
+- `npm run dev:wallet` - Inicia o projeto Polkadot Wallet
+- `npm run dev:saas` - Inicia o projeto Advanced Knowledge Base Management
+
+### Como Usar
+```powershell
+# Para iniciar o Wallet
+npm run dev:wallet
+
+# Para iniciar o SaaS
+npm run dev:saas
+
+# Para ver instruções
+npm run dev
+```
+
+**Nota**: Cada projeto deve ser iniciado em terminais separados para evitar conflitos de porta.
+
 ## 🎯 Projetos Específicos
 
 ### 1. **Polkadot Wallet** (`polkadot-wallet/`)
@@ -176,4 +197,23 @@ node projeto/log-assistant.js "Descrição" "Contexto"
 
 **Este documento deve ser consultado sempre que trabalhar com múltiplos projetos.**
 **Última Atualização**: 29/06/2025
-**Versão**: 2.0.0 
+**Versão**: 2.0.0
+
+## Procedimento Padrão para Execução de Tarefas em Bloco
+
+Sempre que executar tarefas em bloco, utilize uma tabela de acompanhamento com os campos:
+- **Tarefa** (use '>>' para subtarefas)
+- **Status** (🟢 Concluído, 🟡 Pendente, 🔴 Não iniciado)
+- **Projeto** (Wallet, SaaS, Raiz, etc.)
+
+Exemplo:
+| Tarefa | Status | Projeto |
+|--------|--------|---------|
+| 2.1. Topo (Header) | 🟡 Pendente | SaaS |
+| >> 2.1.1. Ajustar links | 🔴 Não iniciado | SaaS |
+
+**Sempre que uma tarefa for concluída, a tabela de status deve ser atualizada e impressa antes de prosseguir para a próxima ação.**
+
+**Toda melhoria de processo ou ajuste de protocolo que surgir durante a execução deve ser registrada na tabela e incorporada à documentação de contexto.**
+
+--- 

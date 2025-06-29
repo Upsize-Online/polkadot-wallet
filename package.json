@@ -8,6 +8,9 @@
     "autodev": "node auto-dev.js",
     "autodev:start": "node auto-dev.js",
     "autodev:stop": "echo 'Pressione Ctrl+C para parar o AutoDev'",
-    "log": "node log-assistente.js"
+    "log": "node log-assistente.js",
+    "dev": "echo 'Iniciando projetos... Use: npm run dev --prefix polkadot-wallet OU npm run dev --prefix Advanced-Knowledge-Base-Management'",
+    "dev:wallet": "npm run dev --prefix polkadot-wallet",
+    "dev:saas": "npm run dev --prefix Advanced-Knowledge-Base-Management"
   }
 }
