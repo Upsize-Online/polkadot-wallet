@@ -1109,25 +1109,25 @@ footer nav a {
   letter-spacing: 0.02em;
 }
 
-/* Forçar tamanho do ícone Wallet2 (carteira) no botão usando seletor SVG direto */
+/* Forçar tamanho do ícone Wallet2 (carteira) no botão usando seletor SVG direto - agora 160px desktop, 96px mobile */
 .btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
-  width: 80px !important;
-  height: 80px !important;
-  min-width: 80px !important;
-  min-height: 80px !important;
-  max-width: 80px !important;
-  max-height: 80px !important;
+  width: 160px !important;
+  height: 160px !important;
+  min-width: 160px !important;
+  min-height: 160px !important;
+  max-width: 160px !important;
+  max-height: 160px !important;
   display: block !important;
   margin: 0 auto 12px auto !important;
 }
 @media (max-width: 768px) {
   .btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px !important;
-    min-height: 48px !important;
-    max-width: 48px !important;
-    max-height: 48px !important;
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+    min-height: 96px !important;
+    max-width: 96px !important;
+    max-height: 96px !important;
   }
 }
 
