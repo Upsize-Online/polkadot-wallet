@@ -1032,7 +1032,6 @@ footer nav a {
   max-width: 2px;
   height: 80%;
   background: var(--polkadot-lime) !important;
-  opacity: 0.25;
   margin: 0 1rem;
   align-self: center;
   border-radius: 2px;
