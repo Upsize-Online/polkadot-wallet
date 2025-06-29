@@ -53,3 +53,8 @@ Projeto testado e funcionando perfeitamente na porta 3001 - Todas as caracterís
 **Contexto:** Refatoração de interface - simplificação para foco no essencial
 **Mensagem:**
 Interface simplificada: removidos componentes extras, mantendo apenas WalletConnect e notificações de status
+
+## [29/06/2025, 06:08:34]
+**Contexto:** Documentação técnica e análise de problemas e soluções do pipeline RAG
+**Mensagem:**
+Documentação crítica do pipeline de leitura e indexação de Markdown para RAG salva como DOCUMENTACAO-PIPELINE-RAG.md
