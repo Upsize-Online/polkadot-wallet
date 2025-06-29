@@ -2,12 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { TrendingUp, Users, Coins, Activity } from 'lucide-react';
+import { TrendingUp, Users, Coins } from 'lucide-react';
 
 interface NetworkStats {
   totalStaked: string;
   activeValidators: number;
-  totalAccounts: string;
   blockHeight: string;
   price: string;
   marketCap: string;
@@ -17,7 +16,6 @@ export default function DashboardStats() {
   const [stats, setStats] = useState<NetworkStats>({
     totalStaked: '0',
     activeValidators: 0,
-    totalAccounts: '0',
     blockHeight: '0',
     price: '0',
     marketCap: '0'
@@ -31,7 +29,6 @@ export default function DashboardStats() {
     const fetchStats = async () => {
       setIsLoading(true);
       try {
-        // Conectar à rede Polkadot
         api = await ApiPromise.create({ provider: new WsProvider('wss://rpc.polkadot.io') });
         await api.isReady;
 
@@ -43,11 +40,10 @@ export default function DashboardStats() {
         const validators = await api.query.session.validators();
         const activeValidators = validators.length;
 
-        // Contas totais
-        const totalAccounts = (await api.query.system.account.keys()).length.toString();
-
-        // Total staked
-        const staking = await api.query.staking.erasTotalStake((await api.query.staking.activeEra()).unwrap().index);
+        // Era index seguro
+        const activeEra = await api.query.staking.activeEra();
+        const eraIndex = activeEra.isSome ? activeEra.unwrap().index : 0;
+        const staking = await api.query.staking.erasTotalStake(eraIndex);
         const totalStaked = (Number(staking.toString()) / Math.pow(10, 10)).toLocaleString('en-US', { maximumFractionDigits: 0 });
 
         // Preço do DOT via CoinGecko
@@ -60,7 +56,6 @@ export default function DashboardStats() {
           setStats({
             totalStaked,
             activeValidators,
-            totalAccounts,
             blockHeight,
             price,
             marketCap
@@ -99,18 +94,18 @@ export default function DashboardStats() {
       bgColor: 'bg-green-500/10'
     },
     {
-      title: 'Contas Totais',
-      value: stats.totalAccounts,
-      icon: <Activity className="w-6 h-6" />,
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-500/10'
+      title: 'Block Height',
+      value: stats.blockHeight,
+      icon: <TrendingUp className="w-6 h-6" />,
+      color: 'text-orange-500',
+      bgColor: 'bg-orange-500/10'
     },
     {
       title: 'Preço DOT',
       value: stats.price,
       icon: <TrendingUp className="w-6 h-6" />,
-      color: 'text-orange-500',
-      bgColor: 'bg-orange-500/10'
+      color: 'text-pink-500',
+      bgColor: 'bg-pink-500/10'
     }
   ];
 
@@ -175,11 +170,11 @@ export default function DashboardStats() {
               <span>{stats.activeValidators} validadores ativos</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-              <span>{stats.totalAccounts} contas criadas</span>
+              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+              <span>Block Height: {stats.blockHeight}</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
               <span>Preço DOT: {stats.price}</span>
             </div>
           </div>
