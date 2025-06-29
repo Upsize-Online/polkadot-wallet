@@ -194,24 +194,23 @@ export default function WalletConnect() {
       )}
 
       {/* Box de Conexão - Mantém o mesmo layout em ambos os estados */}
-      <div className="box-horizontal box-dark">
+      <div className="box-horizontal box-polkadot-black">
         {/* Coluna 1: Logo e texto */}
-        <div className="flex flex-col items-center justify-center flex-1">
-          <img src="/images/Polkadot_Logo_Pink-White.svg" alt="Polkadot" className="logo-polkadot box-img-lg" />
-          <div className="box-subtitle center">
+        <div className="liquid-col">
+          <img src="/images/Polkadot_Logo_Pink-White.svg" alt="Polkadot" className="logo-polkadot-giant" />
+          <div className="box-subtitle center-important">
             {isConnected 
               ? 'Sua wallet está conectada à rede Polkadot.'
               : 'Conecte sua wallet para interagir com a rede Polkadot.'
             }
           </div>
         </div>
-        <div className="separator-vertical" />
-        
+        <div className="separator-vertical-2" />
         {/* Coluna 2: Instruções, Informações da Conta ou Mensagem de Desconexão */}
-        <div className="flex flex-col justify-center flex-1">
+        <div className="liquid-col center-important">
           {showDisconnectInfo ? (
-            <div className="box-vertical disconnect-box">
-              <div className="wallet-status disconnect-message">
+            <div className="box-vertical disconnect-box center-important">
+              <div className="wallet-status disconnect-message center-important">
                 <div>Sua carteira foi desconectada da interface.</div>
                 <div className="disconnect-lime">A extensão Polkadot.js permanece autorizada no navegador.</div>
                 <div>Para remover a autorização completamente, acesse a extensão e remova manualmente este site da lista de permissões.</div>
@@ -225,8 +224,8 @@ export default function WalletConnect() {
             </div>
           ) : !isConnected ? (
             <>
-              <div className="box-title-md">Como Conectar sua Wallet?</div>
-              <ul className="box-list-sm">
+              <div className="box-title-md center-important">Como Conectar sua Wallet?</div>
+              <ul className="box-list-sm center-important">
                 <li>Instale uma extensão de Wallet (Nova, Talisman, SubWallet ou, se você for um desenvolvedor, Polkadot.js)</li>
                 <li>Crie ou importe uma conta na extensão</li>
                 <li>Clique em "Conectar Wallet" ao lado</li>
@@ -235,8 +234,8 @@ export default function WalletConnect() {
             </>
           ) : (
             <>
-              <div className="box-title-md">Informações da Conta</div>
-              <div className="wallet-info">
+              <div className="box-title-md center-important">Informações da Conta</div>
+              <div className="wallet-info center-important">
                 <div className="wallet-account-name">
                   {selectedAccount?.meta.name || 'Conta Polkadot'}
                 </div>
@@ -264,10 +263,9 @@ export default function WalletConnect() {
             </>
           )}
         </div>
-        <div className="separator-vertical" />
-        
+        <div className="separator-vertical-2" />
         {/* Coluna 3: Botão - Mantém o mesmo tamanho e estilo */}
-        <div className="flex flex-col items-center justify-center flex-1">
+        <div className="liquid-col">
           <button
             className="btn-connect-wallet"
             onClick={isConnected ? disconnectWallet : connectWallet}
@@ -287,23 +285,23 @@ export default function WalletConnect() {
       </div>
 
       {/* Box de Segurança */}
-      <div className="box-horizontal box-pink">
+      <div className="box-horizontal box-polkadot-pink">
         {/* Coluna 1: Título */}
-        <div className="flex flex-col justify-center flex-1">
-          <div className="box-title-lg center">Segurança</div>
+        <div className="liquid-col">
+          <div className="box-title-lg center-important">Segurança</div>
         </div>
-        <div className="separator-vertical" />
+        <div className="separator-vertical-2" />
         {/* Coluna 2: Instruções */}
-        <div className="flex flex-col justify-center flex-1">
-          <ul className="box-list">
+        <div className="liquid-col center-important">
+          <ul className="box-list center-important">
             <li>Nunca compartilhe suas chaves privadas</li>
             <li>Use apenas extensões oficiais e verificadas</li>
           </ul>
         </div>
-        <div className="separator-vertical" />
+        <div className="separator-vertical-2" />
         {/* Coluna 3: Instruções duplicadas */}
-        <div className="flex flex-col justify-center flex-1">
-          <ul className="box-list">
+        <div className="liquid-col center-important">
+          <ul className="box-list center-important">
             <li>Nunca compartilhe suas chaves privadas</li>
             <li>Use apenas extensões oficiais e verificadas</li>
           </ul>
