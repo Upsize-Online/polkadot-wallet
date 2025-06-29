@@ -3,5 +3,11 @@
     "@types/react": "^19.1.8",
     "next": "^15.3.4",
     "react": "^19.1.0"
+  },
+  "scripts": {
+    "autodev": "node auto-dev.js",
+    "autodev:start": "node auto-dev.js",
+    "autodev:stop": "echo 'Pressione Ctrl+C para parar o AutoDev'",
+    "log": "node log-assistente.js"
   }
 }
