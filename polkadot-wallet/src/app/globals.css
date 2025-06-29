@@ -640,6 +640,10 @@ footer nav a {
 .wallet-icon-xl {
   width: 4rem !important;
   height: 4rem !important;
+  min-width: 4rem !important;
+  min-height: 4rem !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 
 .wallet-action {
@@ -749,6 +753,8 @@ footer nav a {
   .wallet-icon-xl {
     width: 3rem !important;
     height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
   }
 }
 
@@ -1061,5 +1067,29 @@ footer nav a {
 /* Forçar branco nas instruções de conexão no modo claro */
 .box-list-sm.center-important li {
   color: var(--polkadot-white) !important;
+}
+
+/* Centralizar instruções de conexão (modo claro) */
+.box-list-sm.center-important {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.box-list-sm.center-important li {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
+  width: 100%;
+}
+
+/* Centralização absoluta do texto do box roxo de desconexão */
+.disconnect-box, .disconnect-message, .disconnect-box *, .disconnect-message * {
+  color: var(--polkadot-white) !important;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
