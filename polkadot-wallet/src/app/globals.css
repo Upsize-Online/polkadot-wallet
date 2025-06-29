@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/*
+  Esquema de Cores Polkadot
+  --------------------------------------
+  pink:        #E6007A   (Polkadot Pink)
+  purple:      #6C5CE7   (Polkadot Purple)
+  black:       #000000   (Polkadot Black)
+  white:       #FFFFFF   (Polkadot White)
+  gray:        #747070   (Polkadot Gray)
+  blue:        #1E90FF   (Polkadot Blue - destaque)
+  green:       #22C55E   (Polkadot Green - sucesso)
+  orange:      #FF9800   (Polkadot Orange - alerta)
+  yellow:      #FFD600   (Polkadot Yellow - destaque)
+  light-pink:  #FF6B9D   (Polkadot Light Pink)
+  dark-bg:     #0A0A0A   (Polkadot Dark Background)
+
+  Todas as cores estão disponíveis como variáveis CSS para uso consistente em toda a aplicação.
+  Exemplo de uso: background: var(--polkadot-pink);
+*/
 :root {
     --background: #fff;
     --foreground: #171717;
@@ -7,6 +25,17 @@
     --footer: #7d8590;
     --admin: #e50079;
     --subtitle-contrast: #171717;
+    --polkadot-pink: #E6007A;
+    --polkadot-purple: #6C5CE7;
+    --polkadot-black: #000000;
+    --polkadot-white: #FFFFFF;
+    --polkadot-gray: #747070;
+    --polkadot-blue: #1E90FF;
+    --polkadot-green: #22C55E;
+    --polkadot-orange: #FF9800;
+    --polkadot-yellow: #FFD600;
+    --polkadot-light-pink: #FF6B9D;
+    --polkadot-dark-bg: #0A0A0A;
 }
 
 .dark {
@@ -899,4 +928,10 @@ footer nav a {
     background-position: -200% 0;
   }
 }
+
+/*
+  Tarefa documentada: Esquema de cores Polkadot indexado em variáveis CSS globais.
+  Cores baseadas na identidade visual oficial da Polkadot e tons auxiliares para UI/UX.
+  Utilize sempre as variáveis para garantir consistência visual e facilitar manutenção.
+*/
 
