@@ -291,16 +291,8 @@ export default function WalletConnect() {
           <div className="box-title-lg center-important">Segurança</div>
         </div>
         <div className="separator-vertical-2" />
-        {/* Coluna 2: Instruções */}
-        <div className="liquid-col center-important">
-          <ul className="box-list center-important">
-            <li>Nunca compartilhe suas chaves privadas</li>
-            <li>Use apenas extensões oficiais e verificadas</li>
-          </ul>
-        </div>
-        <div className="separator-vertical-2" />
-        {/* Coluna 3: Instruções duplicadas */}
-        <div className="liquid-col center-important">
+        {/* Coluna 2: Instruções (única) */}
+        <div className="liquid-col center-important" style={{ flex: 2 }}>
           <ul className="box-list center-important">
             <li>Nunca compartilhe suas chaves privadas</li>
             <li>Use apenas extensões oficiais e verificadas</li>
