@@ -63,3 +63,8 @@ Documentação crítica do pipeline de leitura e indexação de Markdown para RA
 **Contexto:** Automação: cores Polkadot para uso global e manutenção (padrão comando a comando)
 **Mensagem:**
 Indexação e documentação do esquema de cores Polkadot no globals.css (variáveis CSS, nomes e hex) - execução comando a comando
+
+## [29/06/2025, 06:54:31]
+**Contexto:** Automação: layout e identidade visual Polkadot na Wallet
+**Mensagem:**
+Layout Polkadot aprimorado: fundo pink e preto nos boxes, logo gigante, colunas líquidas, alinhamento central importante e separadores de 2px
