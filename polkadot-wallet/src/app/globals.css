@@ -135,6 +135,7 @@ div p, section p, article p {
   }
 }
 
+/* Header e Footer - estilos unificados */
 .header-global {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(28.8px);
@@ -151,44 +152,48 @@ div p, section p, article p {
   box-shadow: 0 4px 6px -1px rgba(229, 0, 121, 0.2), 0 2px 4px -1px rgba(229, 0, 121, 0.1), 0 0 20px rgba(229, 0, 121, 0.1);
 }
 
-/* Links do topo */
+/* Links do header e footer */
 .header-link, header a:not(.btn) {
   color: #747070;
-  font-size: 0.875rem; /* 14px */
-  font-weight: 400; /* Unificar peso com footer */
+  font-size: 0.875rem;
+  font-weight: 400;
   transition: color 0.2s;
 }
+
 .header-link:hover, header a:not(.btn):hover {
   color: #e50079;
 }
+
 .dark .header-link:hover, .dark header a:not(.btn):hover {
   color: #fff;
 }
 
-/* Links do rodapé */
 .footer-link, footer a:not(.btn) {
   color: #747070;
-  font-size: 1rem; /* 16px - unificar com header */
-  font-weight: 400; /* Unificar peso com header */
+  font-size: 1rem;
+  font-weight: 400;
   transition: color 0.2s;
 }
+
 .footer-link:hover, footer a:not(.btn):hover {
   color: #e50079;
 }
+
 .dark .footer-link:hover, .dark footer a:not(.btn):hover {
   color: #fff;
 }
 
-/* Espaço entre links do rodapé e texto final */
+/* Espaçamento do footer */
 footer nav, .footer-links {
   margin-bottom: 20px;
 }
 
 .footer-copy {
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
   margin-bottom: 20px;
 }
 
+/* Botão global */
 .btn-global {
   background: #e50079;
   color: #fff;
@@ -197,9 +202,11 @@ footer nav, .footer-links {
   padding: 0.75rem 1rem;
   transition: background 0.2s, color 0.2s;
 }
+
 .btn-global:hover:not(:disabled) {
   background: rgba(229, 0, 121, 0.8);
 }
+
 .btn-global:disabled {
   background: rgba(229, 0, 121, 0.4);
   cursor: not-allowed;
@@ -221,23 +228,23 @@ html body div.max-w-6xl div.text-center p.subtitle-global {
 }
 
 /* Regras para todos os outros títulos com especificidade máxima */
-html body div.max-width-6xl h2 {
+html body div.max-w-6xl h2 {
   font-weight: 600 !important;
   color: #e50079 !important;
   font-size: 1.5rem !important;
   text-align: left !important;
 }
 
-html body div.max-width-6xl h3 {
+html body div.max-w-6xl h3 {
   font-weight: 600 !important;
   color: #e50079 !important;
   font-size: 1.25rem !important;
   text-align: left !important;
 }
 
-html body div.max-width-6xl h4,
-html body div.max-width-6xl h5,
-html body div.max-width-6xl h6 {
+html body div.max-w-6xl h4,
+html body div.max-w-6xl h5,
+html body div.max-w-6xl h6 {
   font-weight: 600 !important;
   color: #e50079 !important;
   font-size: 1.125rem !important;
@@ -247,30 +254,30 @@ html body div.max-width-6xl h6 {
 /* Media queries para alinhamento responsivo */
 @media (min-width: 768px) {
   /* Telas maiores - alinhamento à esquerda */
-  html body div.max-width-6xl h2,
-  html body div.max-width-6xl h3,
-  html body div.max-width-6xl h4,
-  html body div.max-width-6xl h5,
-  html body div.max-width-6xl h6 {
+  html body div.max-w-6xl h2,
+  html body div.max-w-6xl h3,
+  html body div.max-w-6xl h4,
+  html body div.max-w-6xl h5,
+  html body div.max-w-6xl h6 {
     text-align: left !important;
   }
   
-  html body div.max-width-6xl p {
+  html body div.max-w-6xl p {
     text-align: left !important;
   }
 }
 
 @media (max-width: 767px) {
   /* Telas menores - alinhamento ao centro */
-  html body div.max-width-6xl h2,
-  html body div.max-width-6xl h3,
-  html body div.max-width-6xl h4,
-  html body div.max-width-6xl h5,
-  html body div.max-width-6xl h6 {
+  html body div.max-w-6xl h2,
+  html body div.max-w-6xl h3,
+  html body div.max-w-6xl h4,
+  html body div.max-w-6xl h5,
+  html body div.max-w-6xl h6 {
     text-align: center !important;
   }
   
-  html body div.max-width-6xl p {
+  html body div.max-w-6xl p {
     text-align: center !important;
   }
 
@@ -284,43 +291,34 @@ html body div.max-width-6xl h6 {
   }
 }
 
-/* Regra global unificada para espaçamento entre topo e títulos H1 */
+/* Layout principal */
 main {
   padding-top: 40px !important;
 }
 
 /* Garantir que todas as páginas tenham o mesmo espaçamento */
-.wallet-container,
 .max-w-6xl {
   padding-top: 0 !important;
 }
 
-/* Regra específica para títulos H1 em todas as páginas */
+/* Títulos H1 em todas as páginas */
 main h1 {
   margin-top: 0 !important;
   margin-bottom: 0.5rem !important;
 }
 
-/* Sobrescrever qualquer classe Tailwind que possa interferir */
-main .text-center h1,
-main .wallet-container h1,
-main .max-w-6xl h1 {
-  margin-top: 0 !important;
-  margin-bottom: 0.5rem !important;
-}
-
-/* Sobrescrever classes Tailwind de margem que estão causando problemas */
+/* Sobrescrever classes Tailwind de margem */
 main .mb-8,
 main .text-center.mb-8 {
   margin-bottom: 0 !important;
 }
 
-/* Garantir que o espaçamento seja consistente em todas as páginas */
+/* Garantir que o espaçamento seja consistente */
 main .text-center {
   margin-bottom: 0 !important;
 }
 
-/* Garantir que os links individuais do menu sejam centralizados verticalmente e horizontalmente */
+/* Links do menu centralizados */
 header nav a,
 footer nav a {
   display: flex;
@@ -331,8 +329,8 @@ footer nav a {
 
 /* Botão de alternância de tema */
 .header-theme-btn {
-  width: 31.68px; /* 26.4px + 20% */
-  height: 31.68px; /* 26.4px + 20% */
+  width: 31.68px;
+  height: 31.68px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,31 +340,34 @@ footer nav a {
   cursor: pointer;
   transition: box-shadow 0.2s, background 0.2s;
 }
+
 .header-theme-btn svg {
-  width: 31.68px !important; /* 26.4px + 20% */
-  height: 31.68px !important; /* 26.4px + 20% */
-  stroke-width: 2.4 !important; /* 2 + 20% */
+  width: 31.68px !important;
+  height: 31.68px !important;
+  stroke-width: 2.4 !important;
 }
+
 .header-theme-btn:focus {
   outline: none;
 }
-/* Cor do botão tema no modo claro */
+
+/* Cor do botão tema */
 .header-theme-btn svg {
   stroke: #747070 !important;
 }
-/* Cor do botão tema no modo escuro */
+
 .dark .header-theme-btn svg {
   stroke: #ededed !important;
 }
-/* Hover do botão tema */
+
 .header-theme-btn:hover svg {
   stroke: #e50079 !important;
 }
 
 /* Botão hamburger */
 .header-hamburger-btn {
-  width: 83.6352px !important; /* 76.032px + 10% */
-  height: 83.6352px !important; /* 76.032px + 10% */
+  width: 83.6352px !important;
+  height: 83.6352px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,14 +377,17 @@ footer nav a {
   cursor: pointer;
   transition: all 0.2s;
 }
+
 .header-hamburger-btn svg {
-  width: 58.54464px !important; /* 53.2224px + 10% */
-  height: 58.54464px !important; /* 53.2224px + 10% */
-  stroke-width: 2.4 !important; /* 2 + 20% */
+  width: 58.54464px !important;
+  height: 58.54464px !important;
+  stroke-width: 2.4 !important;
 }
+
 .header-hamburger-btn:focus {
   outline: none;
 }
+
 /* Eliminar efeito hover do botão hamburger */
 .header-hamburger-btn:hover,
 .header-hamburger-btn:hover svg,
@@ -395,36 +399,38 @@ footer nav a {
   background: transparent !important;
   box-shadow: none !important;
 }
+
 /* Cor fixa para o botão hamburger */
 .header-hamburger-btn svg {
   color: #e50079 !important;
   stroke: #e50079 !important;
 }
 
-/* =========================
-   PADDING LATERAL HEADER E FOOTER
-   ========================= */
+/* Padding lateral header e footer */
 .header-global, .footer-global {
-  padding-left: 32px;   /* Desktop */
-  padding-right: 32px;  /* Desktop */
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
-/* ----- MOBILE ----- */
+/* Responsividade */
 @media (max-width: 767px) {
   .header-global, .footer-global {
-    padding-left: 16px;   /* Mobile */
-    padding-right: 16px;  /* Mobile */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .header-hamburger-btn {
+    margin-left: -22px !important;
   }
 }
 
-/* =========================
-   MARGENS NEGATIVAS HEADER (caso necessário)
-   ========================= */
+/* Margens negativas header */
 @media (min-width: 768px) {
   .header-logo-negative-margin {
     margin-left: -32px !important;
   }
 }
+
 @media (max-width: 767px) {
   .header-logo-negative-margin {
     margin-left: -16px !important;
