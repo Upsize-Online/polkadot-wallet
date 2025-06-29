@@ -52,4 +52,21 @@ polkadot-wallet/
 - Usuário final: Pessoas não técnicas
 - Foco: Simplicidade e usabilidade
 - Performance: Carregamento rápido
-- Segurança: Integração segura com wallet 
+- Segurança: Integração segura com wallet
+
+## Padrão de Automação de Comandos (Atualização)
+
+A partir de agora, **todos os comandos de automação** (como `git add`, `git commit`, execução de scripts de log, etc.) devem ser executados **um a um**, nunca utilizando `&&` ou comandos compostos, para garantir máxima compatibilidade no ambiente Windows (PowerShell/CMD).
+
+### Motivo
+- O operador `&&` não é nativo do PowerShell/CMD e pode causar falhas silenciosas ou execução parcial dos comandos.
+- Executar cada comando separadamente garante que cada etapa seja concluída corretamente e facilita a identificação de erros.
+
+### Exemplo do novo padrão:
+```powershell
+git add polkadot-wallet/src/app/globals.css
+git commit -m "style: indexação e documentação do esquema de cores Polkadot em variáveis CSS globais"
+node polkadot-wallet/log-assistant.js "Indexação e documentação do esquema de cores Polkadot no globals.css (variáveis CSS, nomes e hex)" "Automação: cores Polkadot para uso global e manutenção"
+```
+
+Sempre siga este padrão para todas as automações do projeto. 
