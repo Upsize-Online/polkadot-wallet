@@ -502,13 +502,26 @@ footer nav a {
 
 .box-horizontal {
   display: flex;
-  align-items: center !important;
-  justify-content: space-between;
-  padding: 1.5rem;
-  margin: 1rem 0;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
   border-radius: 1rem;
   background: var(--background);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: visible;
+  min-height: 200px;
+}
+
+/* Garantir visibilidade dos separadores em todos os contextos */
+.box-horizontal .separator-vertical,
+.box-horizontal .separator-vertical-2 {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 20;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .box-dark {
@@ -680,12 +693,28 @@ footer nav a {
   height: 5rem;
 }
 
-/* Separador vertical */
-.separator-vertical {
-  width: 1px;
-  height: 100%;
-  background: rgba(229, 0, 121, 0.2);
-  margin: 0 1rem;
+/* Separadores específicos para diferentes backgrounds */
+.box-dark .separator-vertical {
+  background: rgba(229, 0, 121, 0.4) !important;
+  box-shadow: 0 0 6px rgba(229, 0, 121, 0.3) !important;
+}
+
+.box-polkadot-black .separator-vertical-2 {
+  background: var(--polkadot-white) !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.box-polkadot-pink .separator-vertical-2 {
+  background: var(--polkadot-lime) !important;
+  box-shadow: 0 0 10px rgba(226, 255, 63, 0.7) !important;
+  border: 1px solid rgba(226, 255, 63, 0.3);
+}
+
+/* Debug: adicionar borda temporária para visualizar separadores */
+.separator-vertical,
+.separator-vertical-2 {
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
 }
 
 /* Mensagem de desconexão */
@@ -758,6 +787,8 @@ footer nav a {
     width: 100%;
     height: 1px;
     margin: 1rem 0;
+    background: rgba(229, 0, 121, 0.3);
+    box-shadow: 0 0 4px rgba(229, 0, 121, 0.2);
   }
   
   .btn-connect-wallet {
@@ -1027,6 +1058,7 @@ footer nav a {
   }
 }
 
+/* Separador vertical 2 - mais visível */
 .separator-vertical-2 {
   width: 2px;
   min-width: 2px;
@@ -1036,14 +1068,31 @@ footer nav a {
   margin: 0 1rem;
   align-self: stretch !important;
   border-radius: 2px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 8px rgba(226, 255, 63, 0.4);
 }
 
+/* Melhorar visibilidade dos separadores no modo escuro */
+.dark .separator-vertical {
+  background: rgba(229, 0, 121, 0.5);
+  box-shadow: 0 0 6px rgba(229, 0, 121, 0.3);
+}
+
+.dark .separator-vertical-2 {
+  background: var(--polkadot-lime) !important;
+  box-shadow: 0 0 10px rgba(226, 255, 63, 0.6);
+}
+
+/* Garantir que os separadores sejam visíveis em diferentes backgrounds */
 .box-polkadot-black .separator-vertical-2 {
-  background: var(--polkadot-white);
+  background: var(--polkadot-white) !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 .box-polkadot-pink .separator-vertical-2 {
   background: var(--polkadot-lime) !important;
+  box-shadow: 0 0 10px rgba(226, 255, 63, 0.6);
 }
 
 /* Shadow customizado para box preto Polkadot no modo escuro - blur maior, área menor, intensidade maior */
@@ -1167,5 +1216,16 @@ footer nav a {
     top: 0;
     bottom: 0;
   }
+}
+
+/* Separador vertical base */
+.separator-vertical {
+  width: 1px;
+  height: 100%;
+  background: rgba(229, 0, 121, 0.3);
+  margin: 0 1rem;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 4px rgba(229, 0, 121, 0.2);
 }
 

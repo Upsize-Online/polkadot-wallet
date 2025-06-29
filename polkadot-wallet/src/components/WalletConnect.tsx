@@ -25,11 +25,6 @@ export default function WalletConnect() {
   const [notification, setNotification] = useState<{type: 'success' | 'error' | 'info', message: string} | null>(null);
   const [dotPrice, setDotPrice] = useState<number | null>(null);
 
-  // Simulação de dados da conta conectada
-  const accountName = 'Minha Conta Polkadot';
-  const accountAddress = '1x2y3z4a5b6c7d8e9f0g1h2i3j4k5l6m7n8o9p0q';
-  const balanceInDOT = '12.3456';
-
   // Mostrar notificação
   const showNotification = (type: 'success' | 'error' | 'info', message: string) => {
     setNotification({ type, message });
@@ -37,6 +32,8 @@ export default function WalletConnect() {
   };
 
   // Conectar à rede Polkadot com fallback
+  // NOTA: Esta conexão é apenas para acessar dados da blockchain
+  // NÃO significa que a wallet está conectada - isso só acontece quando o usuário clica em "Conectar Wallet"
   useEffect(() => {
     let isMounted = true;
     const tryConnectEndpoints = async (endpoints: string[], idx = 0): Promise<void> => {
@@ -54,7 +51,7 @@ export default function WalletConnect() {
         if (isMounted) {
           setApi(apiInstance);
           setApiError(null);
-          showNotification('success', 'Conectado à rede Polkadot com sucesso');
+          // Conexão silenciosa com a rede - sem notificação para o usuário
         }
       } catch (error) {
         if (isMounted) {
@@ -200,8 +197,8 @@ export default function WalletConnect() {
           <img src="/images/Polkadot_Logo_Pink-White.svg" alt="Polkadot" className="logo-polkadot-giant" />
           <div className="box-subtitle center-important">
             {isConnected 
-              ? 'Sua wallet está conectada à rede Polkadot.'
-              : 'Conecte sua wallet para interagir com a rede Polkadot.'
+              ? 'Sua wallet está conectada e autorizada para interagir com a rede Polkadot.'
+              : 'A rede Polkadot está disponível. Conecte sua wallet para começar a usar.'
             }
           </div>
         </div>
