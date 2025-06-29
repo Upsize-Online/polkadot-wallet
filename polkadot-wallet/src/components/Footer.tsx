@@ -22,7 +22,7 @@ export default function Footer() {
     <footer className="py-8 w-full footer-global">
       <div className="flex flex-col items-center max-w-full">
         {mounted && (
-          <Image src={logoSrc} alt="Logo" width={200} height={200} style={{ width: '200px', height: 'auto' }} className="logo-global mb-2" />
+          <Image src={logoSrc} alt="Logo" width={200} height={200} className="logo-global mb-2 footer-logo-size" />
         )}
         <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-2 w-full max-w-4xl">
           <Link href="/" className="footer-link">Wallet</Link>

@@ -167,6 +167,16 @@ div p, section p, article p {
   display: block;
 }
 
+.header-logo-size {
+  width: 200px;
+  height: auto;
+}
+
+.footer-logo-size {
+  width: 200px;
+  height: auto;
+}
+
 @media (max-width: 400px) {
   .logo-global {
     min-width: 200px;
