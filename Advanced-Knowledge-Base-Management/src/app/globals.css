@@ -1,0 +1,1082 @@
+@import "tailwindcss";
+
+/*
+  Esquema de Cores Polkadot
+  --------------------------------------
+  pink:        #E6007A   (Polkadot Pink)
+  purple:      #6C5CE7   (Polkadot Purple)
+  black:       #000000   (Polkadot Black)
+  white:       #FFFFFF   (Polkadot White)
+  gray:        #747070   (Polkadot Gray)
+  blue:        #1E90FF   (Polkadot Blue - destaque)
+  green:       #22C55E   (Polkadot Green - sucesso)
+  orange:      #FF9800   (Polkadot Orange - alerta)
+  yellow:      #FFD600   (Polkadot Yellow - destaque)
+  light-pink:  #FF6B9D   (Polkadot Light Pink)
+  dark-bg:     #0A0A0A   (Polkadot Dark Background)
+
+  Todas as cores estão disponíveis como variáveis CSS para uso consistente em toda a aplicação.
+  Exemplo de uso: background: var(--polkadot-pink);
+*/
+:root {
+  /* === Cores Oficiais Polkadot === */
+  --polkadot-pink: #E6007A;
+  --polkadot-black: #000000;
+  --polkadot-white: #FFFFFF;
+  --polkadot-lime: #E2FF3F;
+  --polkadot-violet: #6C5CE7;
+  --polkadot-cyan: #17F9FF;
+  --polkadot-storm-200: #D2D2E9;
+  --polkadot-storm-400: #A8A8C9;
+  --polkadot-storm-700: #767691;
+
+  /* === Variações e auxiliares usadas no projeto === */
+  --lime: #00ff00;
+  --violet: #8b5cf6;
+  --black: #000;
+  --polkadot-light-pink: #FF6B9D;
+  --polkadot-dark-bg: #0A0A0A;
+  --background: #fff;
+  --foreground: #171717;
+  --subtitle: #7d8590;
+  --footer: #7d8590;
+  --admin: #e50079;
+  --subtitle-contrast: #171717;
+  --polkadot-purple: #6C5CE7;
+  --polkadot-gray: #747070;
+  --polkadot-blue: #1E90FF;
+  --polkadot-green: #22C55E;
+  --polkadot-orange: #FF9800;
+  --polkadot-yellow: #FFD600;
+  --polkadot-storm-200: #D2D2E9;
+  --polkadot-storm-400: #A8A8C9;
+  --polkadot-storm-700: #767691;
+  --black: #000;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --subtitle: #bdbdbd;
+  --footer: #bdbdbd;
+  --admin: #e50079;
+  --subtitle-contrast: #fff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+header, footer {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+header a, footer a, header button, footer button, header span, footer span {
+  color: var(--foreground);
+}
+
+h1 {
+  color: #E6007A !important;
+  font-weight: 700 !important;
+  font-size: 2.25rem !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h2 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h3 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h4, h5, h6 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Subtítulo global - usado em todas as páginas */
+.subtitle-global {
+  color: #747070 !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Exceção: subtítulo dentro do box da carteira (fundo branco) no modo escuro */
+.dark .wallet-box .subtitle-global {
+  color: #171717 !important;
+}
+
+/* Regras de texto unificadas */
+p, li, span, div, section, article {
+  text-align: left;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Parágrafos - usado em todas as páginas */
+p {
+  font-weight: 300 !important;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+/* Garantir que parágrafos não herdem peso de fonte de elementos pais */
+div p, section p, article p {
+  font-weight: 300 !important;
+}
+
+/* Regra unificada para parágrafos em containers específicos */
+.max-w-6xl p, .text-center p, .text-justify p {
+  font-weight: 300 !important;
+  font-size: 0.9375rem !important;
+}
+
+/* Alinhamento de títulos - simplificado */
+.heading-center, .heading-center h1, .heading-center h2, .heading-center h3, .heading-center h4, .heading-center h5, .heading-center h6, .heading-center .subtitle-global {
+  text-align: center;
+}
+
+/* Logos - mantido para componentes */
+.logo-global {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.header-logo-size {
+  width: 200px;
+  height: auto;
+}
+
+.footer-logo-size {
+  width: 200px;
+  height: auto;
+}
+
+@media (max-width: 400px) {
+  .logo-global {
+    min-width: 200px;
+  }
+}
+
+/* Header e Footer - estilos unificados */
+.header-global {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(28.8px);
+  -webkit-backdrop-filter: blur(28.8px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.dark .header-global {
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(28.8px);
+  -webkit-backdrop-filter: blur(28.8px);
+  box-shadow: 0 4px 6px -1px rgba(229, 0, 121, 0.2), 0 2px 4px -1px rgba(229, 0, 121, 0.1), 0 0 20px rgba(229, 0, 121, 0.1);
+}
+
+/* Links do header e footer */
+.header-link, header a:not(.btn) {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header-link:hover, header a:not(.btn):hover {
+  color: var(--polkadot-pink);
+}
+
+.dark .header-link:hover, .dark header a:not(.btn):hover {
+  color: var(--polkadot-pink);
+}
+
+.footer-link, footer a:not(.btn) {
+  color: var(--footer);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.footer-link:hover, footer a:not(.btn):hover {
+  color: var(--polkadot-pink);
+}
+
+.dark .footer-link:hover, .dark footer a:not(.btn):hover {
+  color: var(--polkadot-pink);
+}
+
+footer nav, .footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  color: var(--footer);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Botões globais */
+.btn-global {
+  background: var(--polkadot-pink);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-global:hover:not(:disabled) {
+  background: #c4006a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 0, 122, 0.3);
+}
+
+.btn-global:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Regras específicas para títulos centrados */
+html body div.max-w-6xl div.text-center h1 {
+  color: #E6007A !important;
+  font-weight: 700 !important;
+  font-size: 2.25rem !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+}
+
+html body div.max-w-6xl div.text-center p.subtitle-global {
+  color: #747070 !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+html body div.max-w-6xl h2 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+html body div.max-w-6xl h3 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+html body div.max-w-6xl h4,
+html body div.max-w-6xl h5,
+html body div.max-w-6xl h6 {
+  color: #E6007A !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Responsividade para desktop */
+@media (min-width: 768px) {
+  html body div.max-w-6xl h2,
+  html body div.max-w-6xl h3,
+  html body div.max-w-6xl h4,
+  html body div.max-w-6xl h5,
+  html body div.max-w-6xl h6 {
+    font-size: 1.5rem !important;
+  }
+
+  html body div.max-w-6xl p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 767px) {
+  html body div.max-w-6xl h2,
+  html body div.max-w-6xl h3,
+  html body div.max-w-6xl h4,
+  html body div.max-w-6xl h5,
+  html body div.max-w-6xl h6 {
+    font-size: 1.25rem !important;
+  }
+
+  html body div.max-w-6xl p {
+    font-size: 0.875rem !important;
+  }
+
+  .header-hamburger-btn {
+    display: block;
+  }
+}
+
+.header-global, .footer-global {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Layout principal */
+main {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 1rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+main h1 {
+  color: #E6007A !important;
+  font-weight: 700 !important;
+  font-size: 2.25rem !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+}
+
+main .mb-8,
+main .mb-12 {
+  margin-bottom: 2rem;
+}
+
+main .text-center {
+  text-align: center;
+}
+
+/* Navegação do header */
+header nav a,
+header nav button,
+header nav span {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+/* Botão de tema */
+.header-theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-theme-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.header-theme-btn:focus {
+  outline: 2px solid var(--polkadot-pink);
+  outline-offset: 2px;
+}
+
+.header-theme-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.dark .header-theme-btn svg {
+  color: #fff;
+}
+
+.header-theme-btn:hover svg {
+  transform: rotate(180deg);
+}
+
+/* Botão hamburger */
+.header-hamburger-btn {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-hamburger-btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.header-hamburger-btn:focus {
+  outline: 2px solid var(--polkadot-pink);
+  outline-offset: 2px;
+}
+
+.header-hamburger-btn:hover,
+.header-hamburger-btn:active {
+  background: rgba(230, 0, 122, 0.1);
+  transform: scale(1.05);
+}
+
+.header-hamburger-btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Responsividade do header e footer */
+.header-global, .footer-global {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (max-width: 767px) {
+  .header-global, .footer-global {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .header-hamburger-btn {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-logo-negative-margin {
+    margin-left: -1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-logo-negative-margin {
+    margin-left: 0;
+  }
+}
+
+/* ===== COMPONENTES ESPECÍFICOS ===== */
+
+/* Boxes verticais */
+.box-vertical {
+  background: var(--background);
+  border: 2px solid var(--polkadot-pink);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Boxes horizontais */
+.box-horizontal {
+  background: var(--background);
+  border: 2px solid var(--polkadot-pink);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.box-dark {
+  background: var(--polkadot-black);
+  color: var(--polkadot-white);
+}
+
+.box-pink {
+  background: var(--polkadot-pink);
+  color: var(--polkadot-white);
+}
+
+/* Títulos dos boxes */
+.box-title-lg {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--polkadot-pink);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.box-title-md {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--polkadot-pink);
+  margin-bottom: 0.75rem;
+}
+
+.box-subtitle {
+  font-size: 1rem;
+  color: var(--subtitle);
+  margin-bottom: 1rem;
+}
+
+.box-subtitle.center {
+  text-align: center;
+}
+
+/* Listas nos boxes */
+.box-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(230, 0, 122, 0.2);
+  color: var(--foreground);
+}
+
+.box-list li:last-child {
+  border-bottom: none;
+}
+
+.box-list-sm {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.box-list-sm li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(230, 0, 122, 0.1);
+  color: var(--foreground);
+}
+
+/* Status da wallet */
+.wallet-status {
+  font-size: 0.875rem;
+  color: var(--subtitle);
+  margin-top: 0.5rem;
+}
+
+.wallet-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.wallet-account-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--polkadot-pink);
+}
+
+.wallet-address {
+  font-size: 0.75rem;
+  color: var(--subtitle);
+  font-family: monospace;
+  background: rgba(230, 0, 122, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  word-break: break-all;
+}
+
+.wallet-balance {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--polkadot-pink);
+}
+
+/* Botão de conexão da wallet */
+.btn-connect-wallet {
+  background: var(--polkadot-pink);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.btn-connect-wallet:hover {
+  background: #c4006a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 0, 122, 0.3);
+}
+
+.btn-connect-wallet:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.wallet-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.wallet-icon.wallet-icon-xl, .wallet-icon-xl svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.wallet-action {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Logo Polkadot */
+.logo-polkadot {
+  width: 150px;
+  height: auto;
+}
+
+.box-img-lg {
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Mensagem de desconexão */
+.disconnect-message, .disconnect-box {
+  text-align: center;
+}
+
+.disconnect-message div {
+  margin-bottom: 0.5rem;
+}
+
+.disconnect-message div:last-child {
+  margin-bottom: 0;
+}
+
+.btn-disconnect-confirm {
+  background: var(--polkadot-pink);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-disconnect-confirm:hover {
+  background: #c4006a;
+  transform: translateY(-1px);
+}
+
+.box-error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.disconnect-box {
+  background: rgba(230, 0, 122, 0.1);
+  border-color: var(--polkadot-pink);
+}
+
+.disconnect-lime {
+  color: var(--polkadot-lime);
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+:root {
+  --container-padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .box-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn-connect-wallet {
+    min-width: 180px;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .wallet-icon.wallet-icon-xl, .wallet-icon-xl svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* ===== ANIMAÇÕES ===== */
+
+.hero-title {
+  background: linear-gradient(135deg, var(--polkadot-pink) 0%, var(--polkadot-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.btn-network-selector {
+  background: linear-gradient(135deg, var(--polkadot-pink) 0%, var(--polkadot-violet) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba(230, 0, 122, 0.3);
+}
+
+.btn-network-selector:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 0, 122, 0.4);
+}
+
+.btn-network-selector:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--polkadot-pink);
+  border: 2px solid var(--polkadot-pink);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: var(--polkadot-pink);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.box-text-sm {
+  font-size: 0.875rem;
+  color: var(--subtitle);
+  line-height: 1.5;
+}
+
+.box-text-sm.center {
+  text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box-vertical {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.box-vertical:nth-child(1) { animation-delay: 0.1s; }
+.box-vertical:nth-child(2) { animation-delay: 0.2s; }
+.box-vertical:nth-child(3) { animation-delay: 0.3s; }
+.box-vertical:nth-child(4) { animation-delay: 0.4s; }
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .btn-network-selector {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-secondary {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+.box-vertical .text-2xl {
+  color: var(--polkadot-pink) !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.box-vertical:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 0, 122, 0.15);
+}
+
+/* ===== INDICADORES DE STATUS ===== */
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.status-online {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.status-offline {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* ===== LOADING SKELETON ===== */
+
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 0.25rem;
+}
+
+.dark .loading-skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ===== BOXES ESPECÍFICOS DA WALLET ===== */
+
+.box-polkadot-black {
+  background: var(--polkadot-black);
+  color: var(--polkadot-white);
+}
+
+.box-polkadot-pink {
+  background: var(--polkadot-pink);
+  color: var(--polkadot-white);
+}
+
+.logo-polkadot-giant {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.liquid-col > .logo-polkadot-giant + .box-subtitle {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .logo-polkadot-giant {
+    width: 80px;
+    height: auto;
+  }
+}
+
+.center-important {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.text-justify-important {
+  text-align: justify !important;
+}
+
+.liquid-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .liquid-col {
+    flex: none;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.dark .box-polkadot-black {
+  background: var(--polkadot-black);
+  color: var(--polkadot-white);
+  border-color: var(--polkadot-pink);
+  box-shadow: 0 4px 6px -1px rgba(230, 0, 122, 0.2), 0 2px 4px -1px rgba(230, 0, 122, 0.1);
+}
+
+.box-polkadot-black {
+  background: var(--polkadot-black);
+  color: var(--polkadot-white);
+  border-color: var(--polkadot-pink);
+}
+
+.center-white-important {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--polkadot-white) !important;
+}
+
+.box-polkadot-pink, .box-polkadot-pink * {
+  color: var(--polkadot-white) !important;
+}
+
+.wallet-instructions-white, .wallet-instructions-white * {
+  color: var(--polkadot-white) !important;
+}
+
+.header-admin-btn {
+  background: var(--admin);
+  color: white;
+}
+
+.box-list-sm.center-important li {
+  text-align: center !important;
+  color: var(--polkadot-white) !important;
+}
+
+.box-list-sm.center-important {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 0.875rem !important;
+}
+
+.box-list-sm.center-important li {
+  padding: 0.25rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--polkadot-white) !important;
+}
+
+.disconnect-box, .disconnect-message, .disconnect-box *, .disconnect-message * {
+  text-align: center !important;
+  color: var(--polkadot-white) !important;
+}
+
+.disconnect-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--polkadot-white);
+}
+
+.box-polkadot-pink .box-title-lg {
+  color: var(--polkadot-white) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+}
+
+.btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  color: var(--polkadot-white) !important;
+  transition: transform 0.3s ease !important;
+}
+
+@media (max-width: 768px) {
+  .btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+}
+
+.box-polkadot-pink .liquid-col:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+@media (min-width: 769px) {
+  .box-polkadot-pink .separator-vertical-2 {
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 1rem;
+    align-self: stretch;
+  }
+} 
