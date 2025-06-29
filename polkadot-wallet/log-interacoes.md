@@ -48,3 +48,8 @@ Regras CSS simplificadas - Removidas redundâncias e especificidade excessiva
 **Contexto:** Teste Final
 **Mensagem:**
 Projeto testado e funcionando perfeitamente na porta 3001 - Todas as características visuais mantidas
+
+## [29/06/2025, 04:40:30]
+**Contexto:** Refatoração de interface - simplificação para foco no essencial
+**Mensagem:**
+Interface simplificada: removidos componentes extras, mantendo apenas WalletConnect e notificações de status

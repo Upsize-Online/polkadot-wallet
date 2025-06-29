@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { ApiPromise, WsProvider } from '@polkadot/api';
 import { TrendingUp, Users, Coins, Activity } from 'lucide-react';
 
 interface NetworkStats {
@@ -23,29 +24,63 @@ export default function DashboardStats() {
   });
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulação de dados em tempo real
   useEffect(() => {
+    let api: ApiPromise | null = null;
+    let isMounted = true;
+
     const fetchStats = async () => {
-      // Simular carregamento
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Dados simulados da rede Polkadot
-      setStats({
-        totalStaked: '1,234,567,890',
-        activeValidators: 297,
-        totalAccounts: '2,345,678',
-        blockHeight: '18,234,567',
-        price: '$7.23',
-        marketCap: '$8.5B'
-      });
-      setIsLoading(false);
+      setIsLoading(true);
+      try {
+        // Conectar à rede Polkadot
+        api = await ApiPromise.create({ provider: new WsProvider('wss://rpc.polkadot.io') });
+        await api.isReady;
+
+        // Block height
+        const header = await api.rpc.chain.getHeader();
+        const blockHeight = header.number.toString();
+
+        // Validadores ativos
+        const validators = await api.query.session.validators();
+        const activeValidators = validators.length;
+
+        // Contas totais
+        const totalAccounts = (await api.query.system.account.keys()).length.toString();
+
+        // Total staked
+        const staking = await api.query.staking.erasTotalStake((await api.query.staking.activeEra()).unwrap().index);
+        const totalStaked = (Number(staking.toString()) / Math.pow(10, 10)).toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+        // Preço do DOT via CoinGecko
+        const priceRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=polkadot&vs_currencies=usd&include_market_cap=true');
+        const priceData = await priceRes.json();
+        const price = priceData.polkadot.usd ? `$${priceData.polkadot.usd}` : 'N/A';
+        const marketCap = priceData.polkadot.usd_market_cap ? `$${Number(priceData.polkadot.usd_market_cap).toLocaleString('en-US', { maximumFractionDigits: 0 })}` : 'N/A';
+
+        if (isMounted) {
+          setStats({
+            totalStaked,
+            activeValidators,
+            totalAccounts,
+            blockHeight,
+            price,
+            marketCap
+          });
+          setIsLoading(false);
+        }
+      } catch (err) {
+        if (isMounted) setIsLoading(false);
+      } finally {
+        if (api) await api.disconnect();
+      }
     };
 
     fetchStats();
-    
-    // Atualizar a cada 30 segundos
     const interval = setInterval(fetchStats, 30000);
-    return () => clearInterval(interval);
+    return () => {
+      isMounted = false;
+      if (api) api.disconnect();
+      clearInterval(interval);
+    };
   }, []);
 
   const statCards = [
@@ -81,13 +116,10 @@ export default function DashboardStats() {
 
   return (
     <div className="space-y-6">
-      {/* Título da seção */}
       <div className="text-center">
         <h2 className="box-title-lg">Estatísticas da Rede</h2>
         <p className="box-subtitle">Dados em tempo real da rede Polkadot</p>
       </div>
-
-      {/* Cards de estatísticas */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {statCards.map((stat, index) => (
           <div key={index} className="box-vertical box-dark">
@@ -99,7 +131,6 @@ export default function DashboardStats() {
                 <div className="animate-pulse bg-gray-300 dark:bg-gray-600 h-4 w-16 rounded"></div>
               )}
             </div>
-            
             <div className="space-y-2">
               <h3 className="box-title-sm">{stat.title}</h3>
               {isLoading ? (
@@ -111,8 +142,6 @@ export default function DashboardStats() {
           </div>
         ))}
       </div>
-
-      {/* Informações adicionais */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="box-vertical box-dark">
           <div className="box-title-md center">Informações da Rede</div>
@@ -134,7 +163,6 @@ export default function DashboardStats() {
             </div>
           </div>
         </div>
-
         <div className="box-vertical box-dark">
           <div className="box-title-md center">Últimas Atualizações</div>
           <div className="space-y-3 mt-4">
@@ -144,15 +172,15 @@ export default function DashboardStats() {
             </div>
             <div className="flex items-center gap-3 text-sm">
               <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-              <span>297 validadores ativos</span>
+              <span>{stats.activeValidators} validadores ativos</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-              <span>2.3M+ contas criadas</span>
+              <span>{stats.totalAccounts} contas criadas</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-              <span>Preço DOT: $7.23</span>
+              <span>Preço DOT: {stats.price}</span>
             </div>
           </div>
         </div>
