@@ -502,7 +502,7 @@ footer nav a {
 
 .box-horizontal {
   display: flex;
-  align-items: stretch !important;
+  align-items: center !important;
   justify-content: space-between;
   padding: 1.5rem;
   margin: 1rem 0;
@@ -1034,11 +1034,8 @@ footer nav a {
   height: 80%;
   background: var(--polkadot-lime) !important;
   margin: 0 1rem;
-  align-self: center;
+  align-self: stretch !important;
   border-radius: 2px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .box-polkadot-black .separator-vertical-2 {
@@ -1152,9 +1149,10 @@ footer nav a {
 
 /* 1. Centralizar verticalmente o título Segurança na célula do box pink */
 .box-polkadot-pink .liquid-col:first-child {
+  display: flex !important;
+  flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
-  display: flex !important;
   height: 100%;
 }
 
