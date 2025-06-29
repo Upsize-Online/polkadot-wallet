@@ -252,3 +252,8 @@ Adicionado scripts de desenvolvimento na raiz para orquestrar projetos polkadot-
 **Contexto:** Automação: reutilização de componentes padronizados entre projetos
 **Mensagem:**
 Migração completa de componentes Header, Footer e WalletConnect do polkadot-wallet para o Advanced-Knowledge-Base-Management
+
+## [29/06/2025, 19:24:19]
+**Contexto:** Raiz - Retomada
+**Mensagem:**
+Retomada do desenvolvimento - commit de estrutura completa do Advanced Knowledge Base Management
