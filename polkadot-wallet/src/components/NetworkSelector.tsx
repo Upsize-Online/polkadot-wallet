@@ -50,12 +50,11 @@ export default function NetworkSelector() {
   return (
     <div className="relative">
       <div className="box-horizontal box-dark">
-        <div className="flex flex-col justify-center flex-1">
+        <div className="liquid-col">
           <div className="box-title-md center">Rede Atual</div>
         </div>
-        <div className="separator-vertical" />
         
-        <div className="flex flex-col justify-center flex-1">
+        <div className="liquid-col">
           <div className="flex items-center justify-center gap-3">
             <div 
               className="w-3 h-3 rounded-full"
@@ -69,9 +68,7 @@ export default function NetworkSelector() {
           </div>
         </div>
         
-        <div className="separator-vertical" />
-        
-        <div className="flex flex-col justify-center flex-1">
+        <div className="liquid-col">
           <div className="relative">
             <button
               onClick={() => setIsOpen(!isOpen)}

@@ -80,7 +80,7 @@ header a, footer a, header button, footer button, header span, footer span {
 }
 
 h1 {
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-weight: 700 !important;
   font-size: 2.25rem !important;
   text-align: center !important;
@@ -88,7 +88,7 @@ h1 {
 }
 
 h2 {
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-weight: 600 !important;
   font-size: 1.5rem !important;
   text-align: left !important;
@@ -96,7 +96,7 @@ h2 {
 }
 
 h3 {
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-weight: 600 !important;
   font-size: 1.25rem !important;
   text-align: left !important;
@@ -104,7 +104,7 @@ h3 {
 }
 
 h4, h5, h6 {
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-weight: 600 !important;
   font-size: 1.125rem !important;
   text-align: left !important;
@@ -260,7 +260,7 @@ footer nav, .footer-links {
 /* Regras com especificidade máxima para garantir que os estilos sejam aplicados */
 html body div.max-w-6xl div.text-center h1 {
   font-weight: 700 !important;
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-size: 2.25rem !important;
   text-align: center !important;
 }
@@ -275,14 +275,14 @@ html body div.max-w-6xl div.text-center p.subtitle-global {
 /* Regras para todos os outros títulos com especificidade máxima */
 html body div.max-w-6xl h2 {
   font-weight: 600 !important;
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-size: 1.5rem !important;
   text-align: left !important;
 }
 
 html body div.max-w-6xl h3 {
   font-weight: 600 !important;
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-size: 1.25rem !important;
   text-align: left !important;
 }
@@ -291,7 +291,7 @@ html body div.max-w-6xl h4,
 html body div.max-w-6xl h5,
 html body div.max-w-6xl h6 {
   font-weight: 600 !important;
-  color: #e50079 !important;
+  color: #E6007A !important;
   font-size: 1.125rem !important;
   text-align: left !important;
 }
@@ -513,15 +513,42 @@ footer nav a {
   min-height: 200px;
 }
 
-/* Garantir visibilidade dos separadores em todos os contextos */
-.box-horizontal .separator-vertical,
-.box-horizontal .separator-vertical-2 {
-  flex-shrink: 0;
-  position: relative;
-  z-index: 20;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+/* Separadores usando pseudo-elementos - mais confiáveis */
+.box-horizontal .liquid-col:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 10%;
+  bottom: 10%;
+  width: 2px;
+  background: var(--polkadot-lime);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(226, 255, 63, 0.6);
+  z-index: 30;
+}
+
+/* Separadores específicos para diferentes backgrounds */
+.box-polkadot-black .liquid-col:not(:last-child)::after {
+  background: var(--polkadot-white);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.box-polkadot-pink .liquid-col:not(:last-child)::after {
+  background: var(--polkadot-lime);
+  box-shadow: 0 0 10px rgba(226, 255, 63, 0.7);
+}
+
+/* Separadores horizontais para mobile */
+@media (max-width: 768px) {
+  .box-horizontal .liquid-col:not(:last-child)::after {
+    right: auto;
+    top: auto;
+    bottom: -1rem;
+    left: 10%;
+    right: 10%;
+    width: auto;
+    height: 2px;
+  }
 }
 
 .box-dark {

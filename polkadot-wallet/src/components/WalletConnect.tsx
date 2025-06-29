@@ -202,7 +202,6 @@ export default function WalletConnect() {
             }
           </div>
         </div>
-        <div className="separator-vertical-2" />
         {/* Coluna 2: Instruções, Informações da Conta ou Mensagem de Desconexão */}
         <div className="liquid-col center-important">
           {showDisconnectInfo ? (
@@ -260,7 +259,6 @@ export default function WalletConnect() {
             </>
           )}
         </div>
-        <div className="separator-vertical-2" />
         {/* Coluna 3: Botão - Mantém o mesmo tamanho e estilo */}
         <div className="liquid-col">
           <button
@@ -287,7 +285,6 @@ export default function WalletConnect() {
         <div className="liquid-col">
           <div className="box-title-lg center-important">Segurança</div>
         </div>
-        <div className="separator-vertical-2" />
         {/* Coluna 2: Instruções (primeiras duas frases) */}
         <div className="liquid-col center-important">
           <ul className="box-list center-important">
@@ -295,7 +292,6 @@ export default function WalletConnect() {
             <li>Use apenas extensões oficiais e verificadas</li>
           </ul>
         </div>
-        <div className="separator-vertical-2" />
         {/* Coluna 3: Instruções (últimas duas frases) */}
         <div className="liquid-col center-important">
           <ul className="box-list center-important">
