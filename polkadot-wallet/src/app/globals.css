@@ -761,7 +761,7 @@ footer nav a {
 /* Botão de confirmação de desconexão */
 .btn-disconnect-confirm {
   background: var(--lime, #00ff00);
-  color: var(--black, #000);
+  color: white;
   border: none;
   border-radius: 0.5rem;
   padding: 0.4rem 1rem;
