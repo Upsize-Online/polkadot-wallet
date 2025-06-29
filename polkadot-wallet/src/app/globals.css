@@ -1030,11 +1030,11 @@ footer nav a {
   background: var(--polkadot-white);
 }
 
-/* Shadow customizado para box preto Polkadot no modo escuro - rosa original, mais intenso e área menor */
+/* Shadow customizado para box preto Polkadot no modo escuro - blur maior, área menor, intensidade maior */
 .dark .box-polkadot-black {
-  box-shadow: 0 0 0 2px rgba(230,0,122,0.25), 0 2px 16px 0 rgba(230,0,122,0.55), 0 0 32px 6px rgba(230,0,122,0.35) !important;
-  backdrop-filter: blur(18px) !important;
-  -webkit-backdrop-filter: blur(18px) !important;
+  box-shadow: 0 0 0 1px rgba(230,0,122,0.35), 0 2px 24px 0 rgba(230,0,122,0.75), 0 0 48px 8px rgba(230,0,122,0.45) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
   border: none !important;
   outline: none !important;
   position: relative !important;
@@ -1107,5 +1107,27 @@ footer nav a {
   font-size: 2.2rem !important;
   font-weight: 900 !important;
   letter-spacing: 0.02em;
+}
+
+/* Forçar tamanho do ícone Wallet2 (carteira) no botão usando seletor SVG direto */
+.btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
+  width: 80px !important;
+  height: 80px !important;
+  min-width: 80px !important;
+  min-height: 80px !important;
+  max-width: 80px !important;
+  max-height: 80px !important;
+  display: block !important;
+  margin: 0 auto 12px auto !important;
+}
+@media (max-width: 768px) {
+  .btn-connect-wallet svg.wallet-icon, .btn-connect-wallet svg.wallet-icon-xl {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
 }
 
