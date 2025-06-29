@@ -638,8 +638,8 @@ footer nav a {
 }
 
 .wallet-icon-xl {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem !important;
+  height: 4rem !important;
 }
 
 .wallet-action {
@@ -747,8 +747,8 @@ footer nav a {
   }
   
   .wallet-icon-xl {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem !important;
+    height: 3rem !important;
   }
 }
 
@@ -963,6 +963,11 @@ footer nav a {
   margin: 0 auto;
 }
 
+/* Espaçamento entre logo e texto na coluna da logo */
+.liquid-col > .logo-polkadot-giant + .box-subtitle {
+  margin-top: 30px !important;
+}
+
 @media (max-width: 900px) {
   .logo-polkadot-giant {
     width: 220px !important;
@@ -1022,6 +1027,7 @@ footer nav a {
   backdrop-filter: blur(32px) !important;
   -webkit-backdrop-filter: blur(32px) !important;
   border: none !important;
+  outline: none !important;
   position: relative !important;
   z-index: 1;
 }
@@ -1049,6 +1055,11 @@ footer nav a {
 }
 
 .header-admin-btn {
+  color: var(--polkadot-white) !important;
+}
+
+/* Forçar branco nas instruções de conexão no modo claro */
+.box-list-sm.center-important li {
   color: var(--polkadot-white) !important;
 }
 
