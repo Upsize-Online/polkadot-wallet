@@ -25,50 +25,13 @@ body {
   font-size: 1rem;
 }
 
-/* Garantir que a fonte Unbounded seja aplicada corretamente */
-* {
-  font-family: 'Unbounded', Arial, Helvetica, sans-serif !important;
-}
-
 header, footer {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
 }
 
 header a, footer a, header button, footer button, header span, footer span {
   color: var(--foreground);
-  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
-}
-
-.wallet-container {
-  width: 100%;
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
-}
-
-.wallet-title {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.25rem;
-  font-weight: bold;
-  color: var(--foreground);
-}
-
-.wallet-subtitle {
-  text-align: center;
-  font-size: 1.125rem;
-  color: var(--subtitle);
-  margin-bottom: 2rem;
-}
-
-.wallet-footer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.875rem;
-  color: var(--footer);
 }
 
 h1 {
@@ -103,7 +66,7 @@ h4, h5, h6 {
   margin-bottom: 0.5rem !important;
 }
 
-/* Subtítulo global fora do box branco */
+/* Subtítulo global - usado em todas as páginas */
 .subtitle-global {
   color: #747070 !important;
   font-weight: 600 !important;
@@ -111,24 +74,25 @@ h4, h5, h6 {
   text-align: center !important;
   margin-bottom: 2rem !important;
 }
+
 /* Exceção: subtítulo dentro do box da carteira (fundo branco) no modo escuro */
 .dark .wallet-box .subtitle-global {
   color: #171717 !important;
 }
 
+/* Regras de texto unificadas */
 p, li, span, div, section, article {
   text-align: left;
   font-weight: 400;
   font-size: 1rem;
 }
 
-/* Regra específica para parágrafos para garantir consistência */
+/* Parágrafos - usado em todas as páginas */
 p {
   font-weight: 300 !important;
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--foreground);
-  text-align: center; /* Padrão para telas menores */
 }
 
 /* Garantir que parágrafos não herdem peso de fonte de elementos pais */
@@ -136,30 +100,18 @@ div p, section p, article p {
   font-weight: 300 !important;
 }
 
-/* Regra mais específica para sobrescrever qualquer interferência */
+/* Regra unificada para parágrafos em containers específicos */
 .max-w-6xl p, .text-center p, .text-justify p {
   font-weight: 300 !important;
   font-size: 0.9375rem !important;
 }
 
-/* Sobrescrever qualquer classe Tailwind que possa interferir */
-.text-center h1, .text-center h2, .text-center h3, .text-center h4, .text-center h5, .text-center h6 {
-  font-weight: inherit !important;
-}
-
-/* Regras específicas para garantir que os pesos sejam aplicados */
-.max-w-6xl h1 {
-  font-weight: 700 !important;
-}
-
-.max-w-6xl .subtitle-global {
-  font-weight: 600 !important;
-}
-
+/* Alinhamento de títulos - simplificado */
 .heading-center, .heading-center h1, .heading-center h2, .heading-center h3, .heading-center h4, .heading-center h5, .heading-center h6, .heading-center .subtitle-global {
   text-align: center;
 }
 
+/* Logos - mantido para componentes */
 .logo-global {
   width: auto;
   height: auto;
@@ -269,23 +221,23 @@ html body div.max-w-6xl div.text-center p.subtitle-global {
 }
 
 /* Regras para todos os outros títulos com especificidade máxima */
-html body div.max-w-6xl h2 {
+html body div.max-width-6xl h2 {
   font-weight: 600 !important;
   color: #e50079 !important;
   font-size: 1.5rem !important;
   text-align: left !important;
 }
 
-html body div.max-w-6xl h3 {
+html body div.max-width-6xl h3 {
   font-weight: 600 !important;
   color: #e50079 !important;
   font-size: 1.25rem !important;
   text-align: left !important;
 }
 
-html body div.max-w-6xl h4,
-html body div.max-w-6xl h5,
-html body div.max-w-6xl h6 {
+html body div.max-width-6xl h4,
+html body div.max-width-6xl h5,
+html body div.max-width-6xl h6 {
   font-weight: 600 !important;
   color: #e50079 !important;
   font-size: 1.125rem !important;
@@ -295,30 +247,30 @@ html body div.max-w-6xl h6 {
 /* Media queries para alinhamento responsivo */
 @media (min-width: 768px) {
   /* Telas maiores - alinhamento à esquerda */
-  html body div.max-w-6xl h2,
-  html body div.max-w-6xl h3,
-  html body div.max-w-6xl h4,
-  html body div.max-w-6xl h5,
-  html body div.max-w-6xl h6 {
+  html body div.max-width-6xl h2,
+  html body div.max-width-6xl h3,
+  html body div.max-width-6xl h4,
+  html body div.max-width-6xl h5,
+  html body div.max-width-6xl h6 {
     text-align: left !important;
   }
   
-  html body div.max-w-6xl p {
+  html body div.max-width-6xl p {
     text-align: left !important;
   }
 }
 
 @media (max-width: 767px) {
   /* Telas menores - alinhamento ao centro */
-  html body div.max-w-6xl h2,
-  html body div.max-w-6xl h3,
-  html body div.max-w-6xl h4,
-  html body div.max-w-6xl h5,
-  html body div.max-w-6xl h6 {
+  html body div.max-width-6xl h2,
+  html body div.max-width-6xl h3,
+  html body div.max-width-6xl h4,
+  html body div.max-width-6xl h5,
+  html body div.max-width-6xl h6 {
     text-align: center !important;
   }
   
-  html body div.max-w-6xl p {
+  html body div.max-width-6xl p {
     text-align: center !important;
   }
 
