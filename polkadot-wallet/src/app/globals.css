@@ -509,46 +509,8 @@ footer nav a {
   background: var(--background);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   min-height: 200px;
-}
-
-/* Separadores usando pseudo-elementos - mais confiáveis */
-.box-horizontal .liquid-col:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: -1rem;
-  top: 10%;
-  bottom: 10%;
-  width: 2px;
-  background: var(--polkadot-lime);
-  border-radius: 1px;
-  box-shadow: 0 0 8px rgba(226, 255, 63, 0.6);
-  z-index: 30;
-}
-
-/* Separadores específicos para diferentes backgrounds */
-.box-polkadot-black .liquid-col:not(:last-child)::after {
-  background: var(--polkadot-white);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-}
-
-.box-polkadot-pink .liquid-col:not(:last-child)::after {
-  background: var(--polkadot-lime);
-  box-shadow: 0 0 10px rgba(226, 255, 63, 0.7);
-}
-
-/* Separadores horizontais para mobile */
-@media (max-width: 768px) {
-  .box-horizontal .liquid-col:not(:last-child)::after {
-    right: auto;
-    top: auto;
-    bottom: -1rem;
-    left: 10%;
-    right: 10%;
-    width: auto;
-    height: 2px;
-  }
 }
 
 .box-dark {
@@ -720,30 +682,6 @@ footer nav a {
   height: 5rem;
 }
 
-/* Separadores específicos para diferentes backgrounds */
-.box-dark .separator-vertical {
-  background: rgba(229, 0, 121, 0.4) !important;
-  box-shadow: 0 0 6px rgba(229, 0, 121, 0.3) !important;
-}
-
-.box-polkadot-black .separator-vertical-2 {
-  background: var(--polkadot-white) !important;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.box-polkadot-pink .separator-vertical-2 {
-  background: var(--polkadot-lime) !important;
-  box-shadow: 0 0 10px rgba(226, 255, 63, 0.7) !important;
-  border: 1px solid rgba(226, 255, 63, 0.3);
-}
-
-/* Debug: adicionar borda temporária para visualizar separadores */
-.separator-vertical,
-.separator-vertical-2 {
-  border: 1px solid rgba(255, 0, 0, 0.3) !important;
-}
-
 /* Mensagem de desconexão */
 .disconnect-message, .disconnect-box {
   color: var(--polkadot-white) !important;
@@ -808,14 +746,6 @@ footer nav a {
   .box-horizontal {
     flex-direction: column;
     gap: 1rem;
-  }
-  
-  .separator-vertical {
-    width: 100%;
-    height: 1px;
-    margin: 1rem 0;
-    background: rgba(229, 0, 121, 0.3);
-    box-shadow: 0 0 4px rgba(229, 0, 121, 0.2);
   }
   
   .btn-connect-wallet {
@@ -1085,43 +1015,6 @@ footer nav a {
   }
 }
 
-/* Separador vertical 2 - mais visível */
-.separator-vertical-2 {
-  width: 2px;
-  min-width: 2px;
-  max-width: 2px;
-  height: 80%;
-  background: var(--polkadot-lime) !important;
-  margin: 0 1rem;
-  align-self: stretch !important;
-  border-radius: 2px;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 0 8px rgba(226, 255, 63, 0.4);
-}
-
-/* Melhorar visibilidade dos separadores no modo escuro */
-.dark .separator-vertical {
-  background: rgba(229, 0, 121, 0.5);
-  box-shadow: 0 0 6px rgba(229, 0, 121, 0.3);
-}
-
-.dark .separator-vertical-2 {
-  background: var(--polkadot-lime) !important;
-  box-shadow: 0 0 10px rgba(226, 255, 63, 0.6);
-}
-
-/* Garantir que os separadores sejam visíveis em diferentes backgrounds */
-.box-polkadot-black .separator-vertical-2 {
-  background: var(--polkadot-white) !important;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-.box-polkadot-pink .separator-vertical-2 {
-  background: var(--polkadot-lime) !important;
-  box-shadow: 0 0 10px rgba(226, 255, 63, 0.6);
-}
-
 /* Shadow customizado para box preto Polkadot no modo escuro - blur maior, área menor, intensidade maior */
 .dark .box-polkadot-black {
   box-shadow: 0 0 0 1px rgba(230,0,122,0.35), 0 2px 24px 0 rgba(230,0,122,0.75), 0 0 48px 8px rgba(230,0,122,0.45) !important;
@@ -1243,16 +1136,5 @@ footer nav a {
     top: 0;
     bottom: 0;
   }
-}
-
-/* Separador vertical base */
-.separator-vertical {
-  width: 1px;
-  height: 100%;
-  background: rgba(229, 0, 121, 0.3);
-  margin: 0 1rem;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 0 4px rgba(229, 0, 121, 0.2);
 }
 
