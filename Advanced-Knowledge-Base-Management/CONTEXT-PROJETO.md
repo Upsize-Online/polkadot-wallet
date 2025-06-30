@@ -4,6 +4,80 @@
 - Sempre execute **um comando por vez**.
 - Isso evita erros e garante compatibilidade total no Windows.
 
+# CONTEXTO DO PROJETO: Advanced Knowledge Base Management
+
+## VISÃO GERAL
+SaaS de gestão avançada de base de conhecimento com conexão de wallet embutida, baseado na arquitetura do polkadot-wallet mas com funcionalidades específicas para gestão de conhecimento.
+
+## ARQUITETURA BASE
+- **Framework**: Next.js 14 com TypeScript
+- **Styling**: Tailwind CSS
+- **Wallet Integration**: Polkadot.js (similar ao polkadot-wallet)
+- **Logging**: Sistema de logs compartilhado com polkadot-wallet
+
+## COMPONENTES COMPARTILHADOS COM POLKADOT-WALLET
+- Sistema de conexão de wallet (WalletConnect.tsx)
+- Header e Footer base
+- Estrutura de logging (log-assistant.js)
+- Configurações de build (next.config.ts, tailwind.config.ts)
+- Estilos globais (globals.css)
+
+## FUNCIONALIDADES ESPECÍFICAS DO SAAS
+- Gestão de bases de conhecimento
+- Sistema de busca avançada
+- Organização de documentos
+- Colaboração em tempo real
+- Integração com blockchain para verificação de autenticidade
+
+## ESTRUTURA DE DIRETÓRIOS
+```
+Advanced-Knowledge-Base-Management/
+├── src/
+│   ├── app/                    # Páginas Next.js
+│   ├── components/             # Componentes React
+│   │   ├── WalletConnect.tsx   # Herdado do polkadot-wallet
+│   │   ├── Header.tsx          # Adaptado
+│   │   ├── Footer.tsx          # Adaptado
+│   │   └── [novos componentes específicos do SaaS]
+│   ├── utils/                  # Utilitários
+│   └── styles/                 # Estilos específicos
+├── docs/                       # Documentação técnica
+├── scripts/                    # Scripts de automação
+└── public/                     # Assets estáticos
+```
+
+## PROTOCOLO DE DESENVOLVIMENTO
+1. **Sempre especificar o projeto**: "Advanced Knowledge Base Management"
+2. **Confirmar antes de mudanças**: Especialmente em componentes compartilhados
+3. **Usar caminhos completos**: Para evitar confusão entre projetos
+4. **Logging obrigatório**: Todas as mudanças devem ser registradas
+
+## DEPENDÊNCIAS COMPARTILHADAS
+- next: ^14.0.0
+- react: ^18.0.0
+- typescript: ^5.0.0
+- tailwindcss: ^3.3.0
+- @polkadot/api: ^10.0.0 (para wallet integration)
+
+## ESTADO ATUAL
+- ✅ Estrutura base criada
+- ✅ Configurações de build configuradas
+- ✅ Sistema de logging implementado
+- 🔄 Componentes de wallet sendo adaptados
+- ⏳ Funcionalidades específicas do SaaS em desenvolvimento
+
+## PRÓXIMOS PASSOS
+1. Adaptar WalletConnect.tsx para o contexto do SaaS
+2. Criar componentes específicos de gestão de conhecimento
+3. Implementar sistema de busca e organização
+4. Desenvolver interface de colaboração
+
+## NOTAS IMPORTANTES
+- Este projeto herda a arquitetura de wallet do polkadot-wallet
+- Grandes divergências são esperadas nas funcionalidades específicas
+- Manter compatibilidade com sistema de logging compartilhado
+- Documentar todas as adaptações feitas nos componentes herdados
+
 # Contexto do Projeto - Advanced Knowledge Base Management (SaaS)
 
 ## 🎯 Objetivo Principal
