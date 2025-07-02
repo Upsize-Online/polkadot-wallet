@@ -127,4 +127,66 @@ node scripts/log-assistant.js "Descrição" "Contexto"
 3. Rode o projeto normalmente:
    ```bash
    npm run dev
-   ``` 
+   ```
+
+## 🛠️ Technical & Operational Guidelines
+
+This SaaS platform leverages a modern stack managed by **npm** (Node Package Manager), which controls the installation, versioning, and integration of all dependencies, ensuring seamless operation and easy updates.
+
+### Main Dependencies
+- **@polkadot/api**: Blockchain integration
+- **@polkadot/extension-dapp**: Wallet extension connection
+- **@polkadot/extension-inject**: Account injection and signing
+- **@radix-ui/react-dialog, @radix-ui/react-dropdown-menu, @radix-ui/react-toast**: Accessible UI primitives
+- **lucide-react**: SVG icons
+- **next**: React framework
+- **react**: UI library
+- **react-dom**: DOM rendering
+- **@tailwindcss/postcss, tailwindcss**: Utility-first CSS
+- **typescript, @types/node, @types/react, @types/react-dom**: Type safety
+- **eslint**: Code quality
+
+### Dependency Visualization
+
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+flowchart LR
+    npm["npm (Dependency Manager)"]
+    npm --> NextJS["Next.js (Framework)"]
+    npm --> React["React"]
+    npm --> Radix["Radix UI (Dialog, Dropdown, Toast)"]
+    npm --> Lucide["Lucide React (SVG Icons)"]
+    npm --> Tailwind["TailwindCSS"]
+    npm --> PolkadotAPI["@polkadot/api"]
+    npm --> PolkadotExtDapp["@polkadot/extension-dapp"]
+    npm --> PolkadotExtInject["@polkadot/extension-inject"]
+    npm --> TypeScript["TypeScript"]
+    npm --> ESLint["ESLint"]
+    npm --> PostCSS["PostCSS"]
+    npm --> TypesReact["@types/react, @types/react-dom, @types/node"]
+    NextJS --> React
+    React --> Radix
+    React --> Lucide
+    React --> Tailwind
+    Tailwind --> Globals["globals.css"]
+    Radix --> Tailwind
+    NextJS --> PolkadotAPI
+    NextJS --> PolkadotExtDapp
+    NextJS --> PolkadotExtInject
+    NextJS --> TypeScript
+    NextJS --> ESLint
+    NextJS --> PostCSS
+    Tailwind --> PostCSS
+    TypeScript --> TypesReact
+    classDef main fill:#f9f,stroke:#333,stroke-width:2px;
+    class npm main;
+```
+
+### Integrity & Customization Directives
+- Never modify the source code of external dependencies (Radix UI, TailwindCSS, etc.).
+- All UI/UX customizations must be done via TailwindCSS utility classes, project-specific files (e.g., `globals.css`), Tailwind configuration, or React component composition.
+- For advanced customization, use wrappers or hooks, but never alter files inside `node_modules`.
+- When in doubt, consult this README or the project context documentation before deep customizations.
+
+### For Future Adaptations
+This README is designed to help contributors and collaborators understand both the technical context and operational procedures of this SaaS platform. Use it as a reference for future adaptations, forks, or collaborations, ensuring the project remains robust, maintainable, and easy to extend. This project is visually and technically aligned with polkadot-wallet, but is not a direct fork; it shares standards and components for maximum interoperability. 
