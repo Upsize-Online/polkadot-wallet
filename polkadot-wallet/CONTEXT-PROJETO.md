@@ -119,4 +119,19 @@ Exemplo:
 
 ---
 
-**Este documento deve ser consultado sempre que trabalhar neste projeto específico.** 
+**Este documento deve ser consultado sempre que trabalhar neste projeto específico.**
+
+## 🚫 Diretriz de Integridade das Dependências Externas
+
+**Nunca modifique diretamente o código-fonte de dependências externas como Radix UI, TailwindCSS, Lucide React, etc.**
+
+- Todas as customizações de UI/UX devem ser feitas via:
+  - Classes utilitárias do TailwindCSS
+  - Arquivos próprios do projeto (ex: `globals.css`)
+  - Configuração do Tailwind (`tailwind.config.ts`)
+  - Composição e wrappers de componentes React
+- Alterações em dependências externas podem causar problemas de atualização, conflitos e dificultar a manutenção.
+- Se for absolutamente necessário um comportamento diferente, utilize wrappers, hooks personalizados ou configuração avançada, mas **nunca altere arquivos dentro de `node_modules`**.
+- Em caso de dúvida, consulte este documento ou peça orientação antes de tentar customizações profundas.
+
+--- 

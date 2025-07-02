@@ -1,213 +1,108 @@
 # Polkadot Wallet App
 
-Uma aplicação Next.js para conectar e interagir com wallets Polkadot usando as bibliotecas oficiais do Polkadot.
+A modern Next.js application to connect and interact with Polkadot wallets using official Polkadot libraries.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies Used
 
-- **Next.js 15** - Framework React com App Router
-- **TypeScript** - Tipagem estática
-- **Tailwind CSS v4** - Framework CSS utilitário
-- **Radix UI** - Componentes de interface acessíveis
-- **@polkadot/api** - Biblioteca oficial para interagir com a blockchain Polkadot
-- **@polkadot/extension-dapp** - Biblioteca para conectar com extensões de wallet
-- **Lucide React** - Ícones modernos
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Static typing
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **Radix UI** - Accessible UI components
+- **@polkadot/api** - Official library to interact with the Polkadot blockchain
+- **@polkadot/extension-dapp** - Library to connect with wallet extensions
+- **Lucide React** - Modern SVG icons
 
-## 📋 Pré-requisitos
+## 📋 Prerequisites
 
-Antes de começar, certifique-se de ter instalado:
+- **Node.js** (version 18 or higher)
+- **npm** (comes with Node.js)
+- **A Polkadot wallet extension** (Polkadot.js, Talisman, SubWallet, etc.)
 
-1. **Node.js** (versão 18 ou superior)
-2. **npm** (vem com o Node.js)
-3. **Uma extensão de wallet Polkadot** (Polkadot.js, Talisman, SubWallet, etc.)
+## ⚙️ Installation
 
-## 🛠️ Instalação
-
-1. **Clone o repositório:**
+1. **Clone the repository:**
    ```bash
-   git clone <seu-repositorio>
+   git clone <your-repository>
    cd polkadot-wallet
    ```
-
-2. **Instale as dependências:**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
-
-3. **Execute o servidor de desenvolvimento:**
+3. **Run the development server:**
    ```bash
    npm run dev
    ```
+4. **Open your browser:**
+   Go to [http://localhost:3000](http://localhost:3000)
 
-4. **Abra o navegador:**
-   Acesse [http://localhost:3000](http://localhost:3000)
+## 🔗 How to Connect Your Wallet
 
-## 🔗 Como Conectar sua Wallet
+1. **Install a wallet extension** (Polkadot.js, Talisman, SubWallet, etc.)
+2. **Create or import an account** in the extension
+3. **Click "Connect Wallet"** in the app and authorize the connection
+4. **Select your account** and view your balance and address
 
-### 1. Instalar uma Extensão de Wallet
-
-Você precisa ter uma das seguintes extensões instalada no seu navegador:
-
-- **Polkadot.js Extension** - [Chrome](https://chrome.google.com/webstore/detail/polkadot%7Bjs%7D-extension/mopnmbcafieddcagagdcbnhejhlodfdd) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/polkadot-js-extension/)
-- **Talisman** - [Chrome](https://chrome.google.com/webstore/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet/)
-- **SubWallet** - [Chrome](https://chrome.google.com/webstore/detail/subwallet/onhogfjeacnfoofkfgppdlbmlmnplgbn)
-
-### 2. Criar ou Importar uma Conta
-
-1. Abra a extensão de wallet
-2. Crie uma nova conta ou importe uma existente
-3. Certifique-se de que a conta está configurada para a rede Polkadot
-
-### 3. Conectar no App
-
-1. Clique no botão "Conectar Wallet"
-2. Autorize a conexão na extensão quando solicitado
-3. Selecione a conta que deseja usar
-4. Visualize seu saldo e endereço
-
-## 🏗️ Estrutura do Projeto
+## 🗂️ Project Structure
 
 ```
 polkadot-wallet/
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx          # Página principal
-│   │   └── layout.tsx        # Layout da aplicação
+│   │   ├── page.tsx          # Main page
+│   │   └── layout.tsx        # App layout
 │   └── components/
-│       └── WalletConnect.tsx # Componente principal da wallet
-├── public/                   # Arquivos estáticos
-├── package.json             # Dependências e scripts
-└── tailwind.config.ts       # Configuração do Tailwind
+│       └── WalletConnect.tsx # Main wallet component
+├── public/                   # Static files
+├── package.json              # Dependencies and scripts
+├── tailwind.config.ts        # Tailwind configuration
 ```
 
-## 🔧 Funcionalidades
+## ✅ Features
 
-- ✅ Conectar com extensões de wallet Polkadot
-- ✅ Listar contas disponíveis
-- ✅ Selecionar conta ativa
-- ✅ Exibir saldo em DOT
-- ✅ Exibir endereço da conta
-- ✅ Interface responsiva e moderna
-- ✅ Desconectar wallet
+- Connect with Polkadot wallet extensions
+- List available accounts
+- Select active account
+- Display DOT balance
+- Show account address
+- Responsive and modern interface
+- Disconnect wallet
 
-## 🎨 Personalização
+## 🎨 Customization
 
-### Cores
-As cores principais podem ser personalizadas no arquivo `tailwind.config.ts`:
+- **Colors:** Edit `tailwind.config.ts` to change main colors.
+- **Components:** Style Radix UI components using Tailwind CSS classes.
 
-```typescript
-theme: {
-  extend: {
-    colors: {
-      // Suas cores personalizadas aqui
-    },
-  },
-},
-```
+## 🛠️ Troubleshooting
 
-### Componentes
-Os componentes do Radix UI podem ser estilizados usando as classes do Tailwind CSS.
+- **No account found:** Ensure a wallet extension is installed and active.
+- **Connection error:** Check your internet connection and RPC endpoint.
+- **Balance error:** Make sure you are connected to the correct network.
 
-## 🚨 Solução de Problemas
+## 📚 Additional Resources
 
-### Erro: "Nenhuma conta encontrada"
-- Verifique se você tem uma extensão de wallet instalada
-- Certifique-se de que a extensão está ativa
-- Tente recarregar a página
+- [Polkadot API Documentation](https://polkadot.js.org/docs/api/)
+- [Polkadot Extension DApp Docs](https://polkadot.js.org/docs/extension/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Radix UI Docs](https://www.radix-ui.com/)
 
-### Erro: "Erro ao conectar à rede Polkadot"
-- Verifique sua conexão com a internet
-- O endpoint RPC pode estar temporariamente indisponível
+## 🤝 Contributing
 
-### Erro: "Erro ao buscar saldo"
-- A conta pode não ter saldo
-- Verifique se está conectado à rede correta
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📚 Recursos Adicionais
+## 📄 License
 
-- [Documentação do Polkadot API](https://polkadot.js.org/docs/api/)
-- [Documentação do Polkadot Extension DApp](https://polkadot.js.org/docs/extension/)
-- [Documentação do Next.js](https://nextjs.org/docs)
-- [Documentação do Tailwind CSS](https://tailwindcss.com/docs)
-- [Documentação do Radix UI](https://www.radix-ui.com/)
+This project is under the MIT license. See the `LICENSE` file for more details.
 
-## 🤝 Contribuição
+## 🆘 Support
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 🆘 Suporte
-
-Se você encontrar algum problema ou tiver dúvidas, abra uma issue no repositório ou entre em contato.
-
-## 🛠️ Technical & Operational Guidelines
-
-This project uses a modern stack managed by **npm** (Node Package Manager), which controls the installation, versioning, and integration of all dependencies, ensuring seamless operation and easy updates.
-
-### Main Dependencies
-- **@polkadot/api**: Blockchain integration
-- **@polkadot/extension-dapp**: Wallet extension connection
-- **@polkadot/extension-inject**: Account injection and signing
-- **@radix-ui/react-dialog, @radix-ui/react-dropdown-menu, @radix-ui/react-toast**: Accessible UI primitives
-- **lucide-react**: SVG icons
-- **next**: React framework
-- **react**: UI library
-- **react-dom**: DOM rendering
-- **@tailwindcss/postcss, tailwindcss**: Utility-first CSS
-- **typescript, @types/node, @types/react, @types/react-dom**: Type safety
-- **eslint**: Code quality
-
-### Dependency Visualization
-
-```mermaid
-%%{init: {'flowchart': {'curve': 'linear'}}}%%
-flowchart LR
-    npm["npm (Dependency Manager)"]
-    npm --> NextJS["Next.js (Framework)"]
-    npm --> React["React"]
-    npm --> Radix["Radix UI (Dialog, Dropdown, Toast)"]
-    npm --> Lucide["Lucide React (SVG Icons)"]
-    npm --> Tailwind["TailwindCSS"]
-    npm --> PolkadotAPI["@polkadot/api"]
-    npm --> PolkadotExtDapp["@polkadot/extension-dapp"]
-    npm --> PolkadotExtInject["@polkadot/extension-inject"]
-    npm --> TypeScript["TypeScript"]
-    npm --> ESLint["ESLint"]
-    npm --> PostCSS["PostCSS"]
-    npm --> TypesReact["@types/react, @types/react-dom, @types/node"]
-    NextJS --> React
-    React --> Radix
-    React --> Lucide
-    React --> Tailwind
-    Tailwind --> Globals["globals.css"]
-    Radix --> Tailwind
-    NextJS --> PolkadotAPI
-    NextJS --> PolkadotExtDapp
-    NextJS --> PolkadotExtInject
-    NextJS --> TypeScript
-    NextJS --> ESLint
-    NextJS --> PostCSS
-    Tailwind --> PostCSS
-    TypeScript --> TypesReact
-    classDef main fill:#f9f,stroke:#333,stroke-width:2px;
-    class npm main;
-```
-
-### Integrity & Customization Directives
-- Never modify the source code of external dependencies (Radix UI, TailwindCSS, etc.).
-- All UI/UX customizations must be done via TailwindCSS utility classes, project-specific files (e.g., `globals.css`), Tailwind configuration, or React component composition.
-- For advanced customization, use wrappers or hooks, but never alter files inside `node_modules`.
-- When in doubt, consult this README or the project context documentation before deep customizations.
-
-### For Future Adaptations
-This README is designed to help contributors and collaborators understand both the technical context and operational procedures. Use it as a reference for future adaptations, forks, or collaborations, ensuring the project remains robust, maintainable, and easy to extend.
+If you have any issues or questions, open an issue on the repository or contact us.
 
 ---
 
-**Desenvolvido com ❤️ para o ecossistema Polkadot**
+**Developed with ❤️ for the Polkadot ecosystem**

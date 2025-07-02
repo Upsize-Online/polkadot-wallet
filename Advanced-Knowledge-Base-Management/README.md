@@ -1,115 +1,160 @@
 # Advanced Knowledge Base Management - SaaS Platform
 
-## 🎯 Objetivo Principal
-Desenvolver uma plataforma SaaS para gestão avançada de base de conhecimento, integrando RAG (Retrieval-Augmented Generation) com consulta direta, focada no ecossistema Polkadot e com potencial para integração com carteiras digitais.
+## 🎯 Main Objective
+Develop a SaaS platform for advanced knowledge base management, integrating RAG (Retrieval-Augmented Generation) with direct querying, focused on the Polkadot ecosystem and with potential for integration with digital wallets.
 
-## 🏗️ Arquitetura e Tecnologias
-- **Framework**: Next.js 15 com React 19
-- **Estilização**: Tailwind CSS 4 (padronizado com polkadot-wallet)
-- **Linguagem**: TypeScript
-- **Integração**: Polkadot Ecosystem
-- **UI Components**: Radix UI + Lucide React
-- **Pipeline**: RAG + MCP para dados híbridos
+## 🏗️ Architecture & Technologies
+- **Framework:** Next.js 15 with React 19
+- **Styling:** Tailwind CSS 4 (standardized with polkadot-wallet)
+- **Language:** TypeScript
+- **Integration:** Polkadot Ecosystem
+- **UI Components:** Radix UI + Lucide React
+- **Pipeline:** RAG + MCP for hybrid data
 
-## 📋 Padrões de Desenvolvimento
-- **Componentes**: React funcionais com hooks
-- **Estilização**: Tailwind CSS com classes utilitárias padronizadas
-- **Estrutura**: Organização por funcionalidade SaaS
-- **Responsividade**: Mobile-first design
-- **Acessibilidade**: Seguir padrões WCAG
-- **Automação**: Logs, commits e documentação automática
+## 📋 Development Standards
+- **Components:** Functional React with hooks
+- **Styling:** Tailwind CSS with standardized utility classes
+- **Structure:** Organized by SaaS functionality
+- **Responsiveness:** Mobile-first design
+- **Accessibility:** WCAG standards
+- **Automation:** Logs, commits, and automatic documentation
 
-## 🎨 Diretrizes de Design
-- **Interface**: Limpa e minimalista (padrão polkadot-wallet)
-- **Cores**: Paleta consistente com identidade Polkadot
-- **Tipografia**: Legível e hierárquica
-- **Interações**: Feedback visual claro
-- **Loading**: Estados de carregamento informativos
+## 🎨 Design Guidelines
+- **Interface:** Clean and minimalist (polkadot-wallet standard)
+- **Colors:** Consistent palette with Polkadot identity
+- **Typography:** Readable and hierarchical
+- **Interactions:** Clear visual feedback
+- **Loading:** Informative loading states
 
-## 🔧 Configurações do Ambiente
-- **Salvamento**: Automático a cada 5 segundos
-- **Versionamento**: Git com commits frequentes
-- **Log**: Registro de interações e decisões
-- **Linting**: ESLint configurado
-- **Automação**: Scripts de log e commit padronizados
+## 🛠️ Environment Settings
+- **Auto-save:** Every 5 seconds
+- **Versioning:** Git with frequent commits
+- **Log:** Interaction and decision logging
+- **Linting:** ESLint configured
+- **Automation:** Standardized log and commit scripts
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 ```
 Advanced-Knowledge-Base-Management/
 ├── src/
-│   ├── components/     # Componentes reutilizáveis
-│   ├── pages/         # Páginas do SaaS
-│   ├── styles/        # CSS padronizado
-│   └── utils/         # Utilitários (log, commit, etc.)
-├── docs/              # Documentação técnica
-├── scripts/           # Scripts de automação
-├── public/            # Assets estáticos
-└── README.md          # Este arquivo
+│   ├── components/     # Reusable components
+│   ├── pages/          # SaaS pages
+│   ├── styles/         # Standardized CSS
+│   └── utils/          # Utilities (log, commit, etc.)
+├── docs/               # Technical documentation
+├── scripts/            # Automation scripts
+├── public/             # Static assets
+└── README.md           # This file
 ```
 
-## 🚀 Fluxo de Trabalho
-1. **Contexto**: Sempre verificar este arquivo antes de começar
-2. **Tarefa**: Consultar arquivo de tarefa específica
-3. **Desenvolvimento**: Seguir padrões estabelecidos
-4. **Log**: Registrar decisões importantes
-5. **Commit**: Salvar alterações no Git
+## 🚀 Workflow
+1. **Context:** Always check this file before starting
+2. **Task:** Consult the specific task file
+3. **Development:** Follow established standards
+4. **Log:** Record important decisions
+5. **Commit:** Save changes to Git
 
-## 📝 Notas Importantes
-- **Usuário final**: Desenvolvedores e empresas do ecossistema Polkadot
-- **Foco**: Simplicidade e usabilidade para gestão de conhecimento
-- **Performance**: Carregamento rápido e processamento eficiente
-- **Segurança**: Integração segura com APIs e blockchains
-- **Escalabilidade**: Arquitetura preparada para crescimento
+## 📝 Important Notes
+- **End user:** Developers and companies in the Polkadot ecosystem
+- **Focus:** Simplicity and usability for knowledge management
+- **Performance:** Fast loading and efficient processing
+- **Security:** Secure integration with APIs and blockchains
+- **Scalability:** Architecture ready for growth
 
-## 🔗 Integração com Polkadot Wallet
-- **Padronização visual**: Mesmo sistema de cores e componentes
-- **Autenticação**: Via carteiras Polkadot
-- **Cobrança**: Sistema de pagamento em DOT
-- **API**: Endpoints para integração futura
+## 🔗 Integration with Polkadot Wallet
+- **Visual standardization:** Same color system and components
+- **Authentication:** Via Polkadot wallets
+- **Billing:** Payment system in DOT
+- **API:** Endpoints for future integration
 
-## 🛠️ Componentes Reutilizáveis
-- **Sistema de Log**: Baseado no log-assistant.js
-- **Automação de Commits**: Scripts padronizados
-- **Documentação**: Templates e procedimentos
-- **UI/UX**: Componentes baseados no polkadot-wallet
+## 🛠️ Reusable Components
+- **Log System:** Based on log-assistant.js
+- **Commit Automation:** Standardized scripts
+- **Documentation:** Templates and procedures
+- **UI/UX:** Components based on polkadot-wallet
 
-## 📊 Métricas de Sucesso
-- **Performance**: Tempo de resposta < 2s
-- **Usabilidade**: Interface intuitiva
-- **Escalabilidade**: Suporte a múltiplos usuários
-- **Integração**: Compatibilidade com ecossistema Polkadot
+## 📊 Success Metrics
+- **Performance:** Response time < 2s
+- **Usability:** Intuitive interface
+- **Scalability:** Support for multiple users
+- **Integration:** Compatibility with the Polkadot ecosystem
 
-## 🎯 Roadmap
-1. **Fase 1**: Estrutura base e componentes
-2. **Fase 2**: Pipeline RAG básico
-3. **Fase 3**: Integração com APIs Polkadot
-4. **Fase 4**: Sistema de autenticação e cobrança
-5. **Fase 5**: Integração com polkadot-wallet
+## 🗺️ Roadmap
+1. **Phase 1:** Base structure and components
+2. **Phase 2:** Basic RAG pipeline
+3. **Phase 3:** Integration with Polkadot APIs
+4. **Phase 4:** Authentication and billing system
+5. **Phase 5:** Integration with polkadot-wallet
 
 ---
 
-## Padrão de Automação de Comandos
+## 🛠️ Technical & Operational Guidelines
 
-A partir de agora, **todos os comandos de automação** devem ser executados **um a um**, nunca utilizando `&&` ou comandos compostos, para garantir máxima compatibilidade no ambiente Windows (PowerShell/CMD).
+This SaaS platform leverages a modern stack managed by **npm** (Node Package Manager), which controls the installation, versioning, and integration of all dependencies, ensuring seamless operation and easy updates.
 
-### Exemplo do padrão:
-```powershell
-git add arquivo.md
-git commit -m "feat: descrição da alteração"
-node scripts/log-assistant.js "Descrição" "Contexto"
+### Main Dependencies
+- **@polkadot/api:** Blockchain integration
+- **@polkadot/extension-dapp:** Wallet extension connection
+- **@polkadot/extension-inject:** Account injection and signing
+- **@radix-ui/react-dialog, @radix-ui/react-dropdown-menu, @radix-ui/react-toast:** Accessible UI primitives
+- **lucide-react:** SVG icons
+- **next:** React framework
+- **react:** UI library
+- **react-dom:** DOM rendering
+- **@tailwindcss/postcss, tailwindcss:** Utility-first CSS
+- **typescript, @types/node, @types/react, @types/react-dom:** Type safety
+- **eslint:** Code quality
+
+### Dependency Visualization
+
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+flowchart LR
+    npm["npm (Dependency Manager)"]
+    npm --> NextJS["Next.js (Framework)"]
+    npm --> React["React"]
+    npm --> Radix["Radix UI (Dialog, Dropdown, Toast)"]
+    npm --> Lucide["Lucide React (SVG Icons)"]
+    npm --> Tailwind["TailwindCSS"]
+    npm --> PolkadotAPI["@polkadot/api"]
+    npm --> PolkadotExtDapp["@polkadot/extension-dapp"]
+    npm --> PolkadotExtInject["@polkadot/extension-inject"]
+    npm --> TypeScript["TypeScript"]
+    npm --> ESLint["ESLint"]
+    npm --> PostCSS["PostCSS"]
+    npm --> TypesReact["@types/react, @types/react-dom, @types/node"]
+    NextJS --> React
+    React --> Radix
+    React --> Lucide
+    React --> Tailwind
+    Tailwind --> Globals["globals.css"]
+    Radix --> Tailwind
+    NextJS --> PolkadotAPI
+    NextJS --> PolkadotExtDapp
+    NextJS --> PolkadotExtInject
+    NextJS --> TypeScript
+    NextJS --> ESLint
+    NextJS --> PostCSS
+    Tailwind --> PostCSS
+    TypeScript --> TypesReact
+    classDef main fill:#f9f,stroke:#333,stroke-width:2px;
+    class npm main;
 ```
 
-## Orientação para Comentários em CSS
+### Integrity & Customization Directives
+- Never modify the source code of external dependencies (Radix UI, TailwindCSS, etc.).
+- All UI/UX customizations must be done via TailwindCSS utility classes, project-specific files (e.g., `globals.css`), Tailwind configuration, or React component composition.
+- For advanced customization, use wrappers or hooks, but never alter files inside `node_modules`.
+- When in doubt, consult this README or the project context documentation before deep customizations.
 
-**Nunca use comentários de linha `//` em arquivos CSS.**
-- Sempre utilize o padrão de comentários de bloco: `/* ... */`
-- Comentários de linha causam erro de build e travam o parser CSS
+### For Future Adaptations
+This README is designed to help contributors and collaborators understand both the technical context and operational procedures of this SaaS platform. Use it as a reference for future adaptations, forks, or collaborations, ensuring the project remains robust, maintainable, and easy to extend. This project is visually and technically aligned with polkadot-wallet, but is not a direct fork; it shares standards and components for maximum interoperability.
 
 ---
 
-**Status do Projeto**: 🟡 Em desenvolvimento inicial
-**Última Atualização**: 29/06/2025
-**Versão**: 0.1.0
+**Status:** 🟡 In early development
+**Last update:** 2025-06-29
+**Version:** 0.1.0
 
 ## Passos para garantir o CSS
 
