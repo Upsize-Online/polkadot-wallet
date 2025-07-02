@@ -35,7 +35,7 @@ Develop a SaaS platform for advanced knowledge base management, integrating RAG 
 
 ## 📁 Project Structure
 ```
-Advanced-Knowledge-Base-Management/
+polkadot-cms/
 ├── src/
 │   ├── components/     # Reusable components
 │   ├── pages/          # SaaS pages
