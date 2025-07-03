@@ -8,6 +8,16 @@ export default function Header() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [iconHoveredDesktop, setIconHoveredDesktop] = useState(false);
   const [iconHoveredMobile, setIconHoveredMobile] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+
+  useEffect(() => {
+    function checkWallet() {
+      setIsConnected(localStorage.getItem('walletConnected') === 'true');
+    }
+    checkWallet();
+    window.addEventListener('walletConnected', checkWallet);
+    return () => window.removeEventListener('walletConnected', checkWallet);
+  }, []);
 
   // Ler o tema salvo no localStorage apenas no cliente
   useEffect(() => {
@@ -34,6 +44,13 @@ export default function Header() {
   };
 
   const logoSrc = theme === 'dark' ? '/images/logo-light.png' : '/images/logo-dark.png';
+
+  // Função para logout
+  function handleLogout() {
+    localStorage.removeItem('walletConnected');
+    window.dispatchEvent(new Event('walletConnected'));
+    window.location.href = '/';
+  }
 
   return (
     <header className="sticky top-0 z-50 shadow px-8 py-3 header-global">
@@ -72,7 +89,14 @@ export default function Header() {
               </svg>
             )}
           </button>
-          <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 uppercase">ADMIN</button>
+          {isConnected && (
+            <button
+              onClick={handleLogout}
+              className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 uppercase"
+            >
+              LOGOUT
+            </button>
+          )}
         </div>
         {/* Menu mobile */}
         <div className="flex md:hidden items-center gap-4">
@@ -94,7 +118,9 @@ export default function Header() {
               </svg>
             )}
           </button>
-          <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-3 py-2 rounded-lg transition-colors duration-200 uppercase">ADMIN</button>
+          <Link href="/org-admin">
+            <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-3 py-2 rounded-lg transition-colors duration-200 uppercase">ADMIN</button>
+          </Link>
           <button
             className="header-hamburger-btn h-10 w-10 flex items-center justify-center rounded-lg bg-transparent"
             onClick={() => setMenuOpen(!menuOpen)}

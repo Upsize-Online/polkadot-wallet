@@ -6,6 +6,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import { Wallet, Check, AlertCircle, CheckCircle } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { useRouter } from 'next/navigation';
 
 const POLKADOT_ENDPOINTS = [
   'wss://rpc.polkadot.io',
@@ -24,6 +25,7 @@ export default function WalletConnect() {
   const [showDisconnectInfo, setShowDisconnectInfo] = useState(false);
   const [notification, setNotification] = useState<{type: 'success' | 'error' | 'info', message: string} | null>(null);
   const [dotPrice, setDotPrice] = useState<number | null>(null);
+  const router = useRouter();
 
   // Mostrar notificação
   const showNotification = (type: 'success' | 'error' | 'info', message: string) => {
@@ -116,7 +118,10 @@ export default function WalletConnect() {
         setAccounts(allAccounts);
         setSelectedAccount(allAccounts[0]);
         setIsConnected(true);
+        localStorage.setItem('walletConnected', 'true');
+        window.dispatchEvent(new Event('walletConnected'));
         showNotification('success', 'Wallet conectada com sucesso!');
+        router.replace('/org-admin');
       } else {
         showNotification('error', 'Nenhuma conta encontrada. Certifique-se de ter uma extensão de wallet instalada.');
       }
@@ -133,6 +138,8 @@ export default function WalletConnect() {
     setSelectedAccount(null);
     setIsConnected(false);
     setBalance('0');
+    localStorage.removeItem('walletConnected');
+    window.dispatchEvent(new Event('walletConnected'));
     setShowDisconnectInfo(true);
     showNotification('info', 'Wallet desconectada');
   };
@@ -229,34 +236,9 @@ export default function WalletConnect() {
               </ul>
             </>
           ) : (
-            <>
-              <div className="box-title-md center-important">Informações da Conta</div>
-              <div className="wallet-info center-important">
-                <div className="wallet-account-name">
-                  {selectedAccount?.meta.name || 'Conta Polkadot'}
-                </div>
-                <div className="wallet-address">
-                  {selectedAccount?.address}
-                </div>
-                <div className="wallet-balance">
-                  {/* Preço do DOT acima do saldo */}
-                  {dotPrice !== null && (
-                    <div className="text-xs text-gray-400 mb-1">Preço DOT: ${dotPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                  )}
-                  {/* Saldo e valor em dólares */}
-                  {balance} DOT
-                  {dotPrice !== null && (
-                    <span className="ml-2 text-xs text-green-400 font-semibold">≈ ${(parseFloat(balance) * dotPrice).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                  )}
-                </div>
-                <div className="wallet-status">
-                  <span className="status-indicator status-online">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    Conectado
-                  </span>
-                </div>
-              </div>
-            </>
+            <div className="center-important">
+              <button className="header-admin-btn bg-[#e50079] hover:bg-[#e50079]/80 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 uppercase">CMS LOGIN</button>
+            </div>
           )}
         </div>
         {/* Coluna 3: Botão - Mantém o mesmo tamanho e estilo */}
