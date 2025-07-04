@@ -1,8 +1,0 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/contato/page": "app/contato/page.js",
-  "/page": "app/page.js",
-  "/faq/page": "app/faq/page.js",
-  "/quem-somos/page": "app/quem-somos/page.js",
-  "/o-que-fazemos/page": "app/o-que-fazemos/page.js"
-}
